@@ -1,5 +1,7 @@
 # Garimpo Smart
 
+**Site publicado:** [Abrir o Garimpo Smart](https://wesleyttiago.github.io/garimpo-smart-ml/)
+
 Vitrine mobile-first de achadinhos: casa, cozinha e decoração. Feita com HTML5, CSS3 e JavaScript puro, sem dependências, fontes externas ou etapa de build.
 
 ## Rodar localmente
