@@ -1,5 +1,7 @@
 # Garimpo Smart — teste de automação no n8n
 
+> **Começando do zero?** Siga o [guia de instalação e primeiro teste](COMECE-AQUI.md).
+
 Este módulo encontra **candidatos para os cinco produtos novos da vitrine**, confirma critérios e gera um rascunho local. Não altera os arquivos do site nem publica anúncios.
 
 ## O que está pronto
@@ -27,7 +29,7 @@ O script cria `.env` com chave aleatória, inicia os dois serviços e importa o 
 
 Os serviços escutam apenas no seu computador. Essa configuração usa HTTP local; para hospedagem pública, configure HTTPS, autenticação e cookies seguros antes de expor portas. Não abra portas no roteador para este teste.
 
-Para parar: `docker compose stop`. Para iniciar novamente: `docker compose up -d`. Não repita a importação depois de editar o fluxo: ela pode sobrescrever suas alterações.
+Para parar: `bash manage.sh stop`. Para iniciar novamente: `bash manage.sh start`. A inicialização confere se o fluxo já existe e preserva suas edições. `bash manage.sh test` faz um teste DEMO; `bash manage.sh status` e `bash manage.sh logs` ajudam a conferir os serviços. Se o Docker exigir permissão administrativa, os scripts usam sudo e pedem sua senha no terminal.
 
 ## Testar sem Docker
 
@@ -83,7 +85,10 @@ Confira os produtos no painel e os links na sua conta. Só então ative a agenda
 ## Arquivos
 
 - `workflow.json`: fluxo n8n sem credenciais.
+- `COMECE-AQUI.md`: instalação do zero e primeiro uso.
+- `install-ubuntu.sh`: Docker e Compose pelo repositório oficial no Ubuntu.
 - `compose.yaml`, `setup.sh`, `.env.example`: ambiente local.
+- `manage.sh`, `scripts/docker.sh`: iniciar, parar, conferir e testar.
 - `src/config.mjs`: nomes, buscas e termos exigidos.
 - `src/core.mjs`: pesquisa, filtro e conversor opcional.
 - `src/server.mjs`, `public/`: painel de revisão.

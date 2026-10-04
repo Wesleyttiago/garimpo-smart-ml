@@ -38,6 +38,19 @@ jobs:
           assert.ok(data.products.every(p => p.simulation && !p.affiliateUrl && !p.publishable));
           console.log('Demonstração conferida: cinco candidatos, sem links falsos e sem publicação.');
           NODE
+      - name: Conferir repetição, preservação e teste guiado
+        working-directory: automation
+        run: |
+          docker compose exec -T n8n node -e "const fs=require('node:fs');const wf=JSON.parse(fs.readFileSync('/workflows/garimpo-smart.json','utf8'));wf.name='Edicao preservada no teste';fs.writeFileSync('/tmp/garimpo-edited.json',JSON.stringify(wf));"
+          docker compose exec -T n8n n8n import:workflow --input=/tmp/garimpo-edited.json
+          bash setup.sh
+          docker compose exec -T n8n n8n export:workflow --id=garimpoSmartDraft01 --output=/tmp/garimpo-preserved.json
+          docker compose exec -T n8n node -e "const assert=require('node:assert/strict');const fs=require('node:fs');const list=JSON.parse(fs.readFileSync('/tmp/garimpo-preserved.json','utf8'));assert.equal(list[0].name,'Edicao preservada no teste');console.log('Edicao preservada.');"
+          bash manage.sh test
+          bash manage.sh stop
+          bash manage.sh start
+          bash manage.sh status
+          bash manage.sh test
       - name: Encerrar serviços
         if: always()
         working-directory: automation
