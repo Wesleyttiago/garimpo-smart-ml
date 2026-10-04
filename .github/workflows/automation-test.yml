@@ -51,6 +51,15 @@ jobs:
           bash manage.sh start
           bash manage.sh status
           bash manage.sh test
+      - name: Recuperar config inválido mantendo o banco e os fluxos
+        working-directory: automation
+        run: |
+          docker compose stop n8n
+          docker compose run -T --rm --no-deps --entrypoint node n8n -e "require('node:fs').writeFileSync('/home/node/.n8n/config','');"
+          bash repair-config.sh
+          docker compose exec -T n8n n8n export:workflow --id=garimpoSmartDraft01 --output=/tmp/garimpo-after-repair.json
+          docker compose exec -T n8n node -e "const assert=require('node:assert/strict');const fs=require('node:fs');const list=JSON.parse(fs.readFileSync('/tmp/garimpo-after-repair.json','utf8'));assert.equal(list[0].name,'Edicao preservada no teste');assert.ok(fs.readdirSync('/home/node/.n8n').some(name=>name.startsWith('config.broken-')));console.log('Reparo preservou o fluxo e criou a copia.');"
+          bash manage.sh test
       - name: Encerrar serviços
         if: always()
         working-directory: automation

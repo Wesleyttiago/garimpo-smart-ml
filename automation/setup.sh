@@ -2,7 +2,9 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 . scripts/docker.sh
+. scripts/storage.sh
 require_docker
+check_storage
 umask 077
 if [ ! -f .env ]; then
   key="$("${DOCKER[@]}" run --rm node:24.19.0-alpine node -e "process.stdout.write(require('node:crypto').randomBytes(32).toString('hex'))")"

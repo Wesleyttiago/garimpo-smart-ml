@@ -2,6 +2,11 @@ services:
   n8n:
     image: docker.n8n.io/n8nio/n8n:2.41.6
     restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
     ports:
       - "127.0.0.1:5678:5678"
     environment:
@@ -26,6 +31,11 @@ services:
   worker:
     image: node:24.19.0-alpine
     restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
     working_dir: /app
     command: ["node", "src/server.mjs"]
     user: node
