@@ -1,3 +1,8 @@
 .DS_Store
 __pycache__/
 *.zip
+
+# Automação local: credenciais, dados e dependências
+automation/.env
+automation/output/
+automation/node_modules/

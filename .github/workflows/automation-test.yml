@@ -1,0 +1,44 @@
+name: Garimpo - teste da automação
+on:
+  push:
+    paths:
+      - 'automation/**'
+      - '.github/workflows/automation-test.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  automation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Testar filtros e autorização
+        working-directory: automation
+        run: npm test
+      - name: Iniciar e importar no n8n
+        working-directory: automation
+        run: bash setup.sh
+      - name: Executar o fluxo dentro do container
+        working-directory: automation
+        run: docker compose exec -T -e N8N_RUNNERS_BROKER_PORT=5680 n8n n8n execute --id=garimpoSmartDraft01
+      - name: Conferir rascunho de demonstração
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          const response = await fetch('http://127.0.0.1:8078/api/results');
+          assert.equal(response.status, 200);
+          const data = await response.json();
+          assert.equal(data.mode, 'demo');
+          assert.equal(data.count, 5);
+          assert.equal(data.published, false);
+          assert.ok(data.products.every(p => p.simulation && !p.affiliateUrl && !p.publishable));
+          console.log('Demonstração conferida: cinco candidatos, sem links falsos e sem publicação.');
+          NODE
+      - name: Encerrar serviços
+        if: always()
+        working-directory: automation
+        run: docker compose down

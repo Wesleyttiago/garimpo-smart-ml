@@ -1,0 +1,53 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:2.41.6
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      TZ: America/Recife
+      GENERIC_TIMEZONE: America/Recife
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?Execute bash setup.sh primeiro}
+      N8N_SECURE_COOKIE: "false"
+      N8N_DIAGNOSTICS_ENABLED: "false"
+      N8N_PERSONALIZATION_ENABLED: "false"
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./workflow.json:/workflows/garimpo-smart.json:ro
+    depends_on:
+      worker:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5678/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  worker:
+    image: node:24.19.0-alpine
+    restart: unless-stopped
+    working_dir: /app
+    command: ["node", "src/server.mjs"]
+    user: node
+    ports:
+      - "127.0.0.1:8078:8080"
+    environment:
+      PORT: "8080"
+      OUTPUT_DIR: /app/output
+      ENABLE_LIVE_SEARCH: ${ENABLE_LIVE_SEARCH:-false}
+      ML_ACCESS_TOKEN: ${ML_ACCESS_TOKEN:-}
+      AFFILIATE_PROVIDER_ENABLED: ${AFFILIATE_PROVIDER_ENABLED:-false}
+      AFFILIATE_API_KEY: ${AFFILIATE_API_KEY:-}
+      AFFILIATE_TRACKING_ID: ${AFFILIATE_TRACKING_ID:-}
+    volumes:
+      - ./src:/app/src:ro
+      - ./fixtures:/app/fixtures:ro
+      - ./public:/app/public:ro
+      - ./output:/app/output
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  n8n_data:

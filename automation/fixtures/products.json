@@ -1,0 +1,89 @@
+[
+  {
+    "id": "DEMO-01",
+    "title": "Mini impressora térmica portátil Bluetooth",
+    "price": 89.9,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 5,
+    "seller_green": true,
+    "permalink": "https://example.invalid/DEMO-01"
+  },
+  {
+    "id": "DEMO-02",
+    "title": "Umidificador difusor efeito chama",
+    "price": 79.9,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 3,
+    "seller_green": true,
+    "permalink": "https://example.invalid/DEMO-02"
+  },
+  {
+    "id": "DEMO-03",
+    "title": "Garrafa térmica LED termômetro",
+    "price": 39.9,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 2,
+    "seller_green": true,
+    "permalink": "https://example.invalid/DEMO-03"
+  },
+  {
+    "id": "DEMO-04",
+    "title": "Câmera lâmpada WiFi 360",
+    "price": 109.9,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 8,
+    "seller_green": true,
+    "permalink": "https://example.invalid/DEMO-04"
+  },
+  {
+    "id": "DEMO-05",
+    "title": "Mini liquidificador portátil USB Fresh Juice",
+    "price": 69.9,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 4,
+    "seller_green": true,
+    "permalink": "https://example.invalid/DEMO-05"
+  },
+  {
+    "id": "DEMO-BAD-01",
+    "title": "Mini impressora térmica Bluetooth usada",
+    "price": 20,
+    "condition": "used",
+    "status": "active",
+    "available_quantity": 3,
+    "seller_green": true
+  },
+  {
+    "id": "DEMO-BAD-02",
+    "title": "Umidificador difusor efeito chama",
+    "price": 10,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 0,
+    "seller_green": true
+  },
+  {
+    "id": "DEMO-BAD-03",
+    "title": "Capa para garrafa térmica LED",
+    "price": 10,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 2,
+    "seller_green": true
+  },
+  {
+    "id": "DEMO-BAD-04",
+    "title": "Câmera lâmpada WiFi",
+    "price": 10,
+    "condition": "new",
+    "status": "active",
+    "available_quantity": 2,
+    "seller_green": false
+  }
+]
+

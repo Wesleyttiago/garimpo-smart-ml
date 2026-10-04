@@ -1,0 +1,155 @@
+{
+  "id": "garimpoSmartDraft01",
+  "name": "Garimpo Smart - pesquisa e rascunho",
+  "active": false,
+  "nodes": [
+    {
+      "id": "manual",
+      "name": "Testar agora",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "schedule",
+      "name": "Diário às 9h (ativar depois)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        200
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1,
+              "triggerAtHour": 9,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "config",
+      "name": "Modo de teste",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        260,
+        80
+      ],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\"mode\":\"demo\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "run",
+      "name": "Pesquisar e preparar rascunho",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        80
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://worker:8080/api/run",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "timeout": 180000
+        }
+      }
+    },
+    {
+      "id": "result",
+      "name": "Conferir em localhost 8078",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        780,
+        80
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "note",
+      "name": "Como usar",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -220
+      ],
+      "parameters": {
+        "content": "## Teste sem alterar a loja\n1. Execute **Testar agora**.\n2. Confira http://localhost:8078.\n3. Demo usa preços fictícios e não cria comissão.\n4. Pesquisa real e provedor precisam de autorização/configuração.\n5. Fluxo importado inativo; horário America/Recife.",
+        "height": 260,
+        "width": 600
+      }
+    }
+  ],
+  "connections": {
+    "Testar agora": {
+      "main": [
+        [
+          {
+            "node": "Modo de teste",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Diário às 9h (ativar depois)": {
+      "main": [
+        [
+          {
+            "node": "Modo de teste",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Modo de teste": {
+      "main": [
+        [
+          {
+            "node": "Pesquisar e preparar rascunho",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pesquisar e preparar rascunho": {
+      "main": [
+        [
+          {
+            "node": "Conferir em localhost 8078",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Recife",
+    "executionTimeout": 180
+  },
+  "pinData": {},
+  "tags": []
+}
+
