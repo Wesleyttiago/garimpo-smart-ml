@@ -2,7 +2,7 @@
 
 **Site publicado:** [Abrir o Garimpo Smart](https://wesleyttiago.github.io/garimpo-smart-ml/)
 
-Vitrine mobile-first de achadinhos: casa, cozinha e decoração. Feita com HTML5, CSS3 e JavaScript puro, sem dependências, fontes externas ou etapa de build.
+Vitrine mobile-first de achadinhos: casa, cozinha, decoração e tecnologia. Feita com HTML5, CSS3 e JavaScript puro, sem dependências, fontes externas ou etapa de build.
 
 ## Rodar localmente
 
@@ -24,7 +24,23 @@ Abra `http://localhost:8000`. Também é possível abrir o `index.html` diretame
 
 Edite o `<article>` correspondente no `index.html`. Cada card contém título, descrição, imagem, categoria e o link de oferta. Os links começam com `https://meli.la/` e devem ser preservados exatamente, inclusive letras maiúsculas. Se substituir uma oferta, confira o modelo, a foto e a descrição juntos. Preserve `rel="sponsored noopener noreferrer"` nos links de afiliado.
 
-Para cadastrar outro produto, duplique um card, escolha `data-category="casa"`, `"cozinha"` ou `"decoracao"`, e use identificadores exclusivos em `id` e `aria-labelledby`. Atualize o número do botão Todos e a contagem inicial. O filtro calcula as contagens após cada interação.
+Para cadastrar outro produto, duplique um card, escolha `data-category="casa"`, `"cozinha"`, `"decoracao"` ou `"tecnologia"`, e use identificadores exclusivos em `id` e `aria-labelledby`. Atualize o número do botão Todos e a contagem inicial. O filtro calcula as contagens após cada interação.
+
+## Novos achados — links e fotos pendentes
+
+A vitrine contém **10 produtos**. Os cinco novos cards estão no `index.html`, com `href=""`:
+
+- `mini-impressora`: Mini Impressora Térmica Portátil Bluetooth.
+- `difusor-chama`: Umidificador Difusor de Ar Efeito Chama 3D.
+- `garrafa-termica-led`: Garrafa Térmica Inteligente Termômetro LED.
+- `camera-lampada`: Câmera Lâmpada de Segurança Wi-Fi 360º.
+- `mini-liquidificador`: Mini Liquidificador Portátil USB Fresh Juice.
+
+Cole o link encurtado **meli.la** no `href` do botão do produto e recarregue a página. O JavaScript remove o estado desativado e troca “Link em breve” por “no Mercado Livre”. Enquanto o endereço estiver vazio, o botão não navega nem recarrega o site. Os nove links das ofertas anteriores foram preservados.
+
+As fotos dos novos modelos ainda não foram fornecidas. Para adicioná-las, substitua o conteúdo do `div.product-image-placeholder` por um `img` com caminho local, texto alternativo, largura, altura, `loading="lazy"` e `decoding="async"`; mantenha a tag de novidade se desejar e troque a classe `product-image-placeholder` por `product-image-contain`.
+
+Se usar o site sem JavaScript após preencher um link, remova também `aria-disabled="true"` e `tabindex="-1"` e altere o texto “Link em breve” no HTML.
 
 ## Grupo VIP
 

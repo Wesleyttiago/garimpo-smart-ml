@@ -10,8 +10,8 @@
   <meta property="og:type" content="website">
   <title>Garimpo Smart — Do feed pra sua casa</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css?v=catalogo-10">
+  <script src="script.js?v=catalogo-10"></script>
   <script src="site-config.js" defer></script>
 </head>
 <body>
@@ -52,12 +52,13 @@
     <section class="catalog shell" id="catalogo" aria-labelledby="catalog-title">
       <div class="catalog-heading"><div><p class="eyebrow">A NOSSA SELEÇÃO</p><h2 id="catalog-title">Vale a descoberta.</h2></div><p>Escolha uma categoria e encontre seu próximo achado.</p></div>
       <div class="filters" role="group" aria-label="Filtrar achados por categoria">
-        <button type="button" data-filter="todos" aria-pressed="true">Todos <span>5</span></button>
+        <button type="button" data-filter="todos" aria-pressed="true">Todos <span>10</span></button>
         <button type="button" data-filter="casa" aria-pressed="false">Casa e organização</button>
         <button type="button" data-filter="cozinha" aria-pressed="false">Cozinha</button>
         <button type="button" data-filter="decoracao" aria-pressed="false">Decoração</button>
+        <button type="button" data-filter="tecnologia" aria-pressed="false">Tecnologia</button>
       </div>
-      <p class="result-count" id="result-count" aria-live="polite" aria-atomic="true">5 achados para explorar</p>
+      <p class="result-count" id="result-count" aria-live="polite" aria-atomic="true">10 achados para explorar</p>
       <div class="product-grid" id="product-grid">
         <article class="product-card" data-category="casa" id="mini-mop" aria-labelledby="mop-title">
           <div class="product-image"><img src="assets/mini-mop.webp" alt="Mini mop branco dobrável em uso na limpeza de uma bancada." width="530" height="447" loading="lazy" decoding="async"><span class="product-tag">Casa prática</span></div>
@@ -79,6 +80,76 @@
           <div class="product-image product-image-contain"><img src="assets/mini-processador.webp" alt="Mini processador verde, com recipiente transparente e lâminas internas." width="529" height="515" loading="lazy" decoding="async"><span class="product-tag">Cozinha descomplicada</span></div>
           <div class="product-copy"><p class="product-category">COZINHA</p><h3 id="processor-title">Mini processador de alimentos USB</h3><p class="product-description">Uma ajuda compacta para o preparo de pequenas porções. Versão verde.</p><a class="button offer-button" href="https://meli.la/1eCVpPD" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver oferta do mini processador verde de alimentos USB no Mercado Livre">Ver oferta <span>no Mercado Livre</span></a><details class="alternatives"><summary>Outra opção deste achado</summary><a href="https://meli.la/1N4gRYH" target="_blank" rel="sponsored noopener noreferrer">Mini processador Knup branco, 250 ml, USB — ver oferta</a></details></div>
         </article>
+        <article class="product-card" data-category="tecnologia" id="mini-impressora" aria-labelledby="mini-impressora-title">
+          <div class="product-image product-image-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="7" y="9" width="34" height="30" rx="5"/><circle cx="17" cy="19" r="3"/><path d="m9 34 10-10 7 7 6-6 7 9"/></svg>
+            <span class="placeholder-label">Foto em breve</span>
+            <span class="product-tag tag-purple">Novidade</span>
+          </div>
+          <div class="product-copy">
+            <p class="product-category">TECNOLOGIA</p>
+            <h3 id="mini-impressora-title">Mini Impressora Térmica Portátil Bluetooth</h3>
+            <p class="product-description">Uma opção compacta para imprimir lembretes, listas e ideias na rotina.</p>
+            <!-- Cole seu link meli.la no href abaixo. O botão será ativado ao recarregar a página. -->
+            <a class="button offer-button" href="" data-pending-offer aria-disabled="true" tabindex="-1" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver oferta de Mini Impressora Térmica Portátil Bluetooth no Mercado Livre">Ver oferta <span>Link em breve</span></a>
+          </div>
+        </article>
+        <article class="product-card" data-category="decoracao" id="difusor-chama" aria-labelledby="difusor-chama-title">
+          <div class="product-image product-image-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="7" y="9" width="34" height="30" rx="5"/><circle cx="17" cy="19" r="3"/><path d="m9 34 10-10 7 7 6-6 7 9"/></svg>
+            <span class="placeholder-label">Foto em breve</span>
+            <span class="product-tag tag-purple">Novidade</span>
+          </div>
+          <div class="product-copy">
+            <p class="product-category">DECORAÇÃO</p>
+            <h3 id="difusor-chama-title">Umidificador Difusor de Ar Efeito Chama 3D</h3>
+            <p class="product-description">Um toque de luz com efeito chama para compor o seu cantinho.</p>
+            <!-- Cole seu link meli.la no href abaixo. O botão será ativado ao recarregar a página. -->
+            <a class="button offer-button" href="" data-pending-offer aria-disabled="true" tabindex="-1" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver oferta de Umidificador Difusor de Ar Efeito Chama 3D no Mercado Livre">Ver oferta <span>Link em breve</span></a>
+          </div>
+        </article>
+        <article class="product-card" data-category="cozinha" id="garrafa-termica-led" aria-labelledby="garrafa-termica-led-title">
+          <div class="product-image product-image-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="7" y="9" width="34" height="30" rx="5"/><circle cx="17" cy="19" r="3"/><path d="m9 34 10-10 7 7 6-6 7 9"/></svg>
+            <span class="placeholder-label">Foto em breve</span>
+            <span class="product-tag tag-purple">Novidade</span>
+          </div>
+          <div class="product-copy">
+            <p class="product-category">COZINHA</p>
+            <h3 id="garrafa-termica-led-title">Garrafa Térmica Inteligente Termômetro LED</h3>
+            <p class="product-description">Uma garrafa com visor LED para acompanhar a temperatura da sua bebida.</p>
+            <!-- Cole seu link meli.la no href abaixo. O botão será ativado ao recarregar a página. -->
+            <a class="button offer-button" href="" data-pending-offer aria-disabled="true" tabindex="-1" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver oferta de Garrafa Térmica Inteligente Termômetro LED no Mercado Livre">Ver oferta <span>Link em breve</span></a>
+          </div>
+        </article>
+        <article class="product-card" data-category="tecnologia" id="camera-lampada" aria-labelledby="camera-lampada-title">
+          <div class="product-image product-image-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="7" y="9" width="34" height="30" rx="5"/><circle cx="17" cy="19" r="3"/><path d="m9 34 10-10 7 7 6-6 7 9"/></svg>
+            <span class="placeholder-label">Foto em breve</span>
+            <span class="product-tag tag-purple">Novidade</span>
+          </div>
+          <div class="product-copy">
+            <p class="product-category">TECNOLOGIA</p>
+            <h3 id="camera-lampada-title">Câmera Lâmpada de Segurança Wi-Fi 360º</h3>
+            <p class="product-description">Formato de lâmpada e conexão Wi-Fi para acompanhar o ambiente.</p>
+            <!-- Cole seu link meli.la no href abaixo. O botão será ativado ao recarregar a página. -->
+            <a class="button offer-button" href="" data-pending-offer aria-disabled="true" tabindex="-1" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver oferta de Câmera Lâmpada de Segurança Wi-Fi 360º no Mercado Livre">Ver oferta <span>Link em breve</span></a>
+          </div>
+        </article>
+        <article class="product-card" data-category="cozinha" id="mini-liquidificador" aria-labelledby="mini-liquidificador-title">
+          <div class="product-image product-image-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="7" y="9" width="34" height="30" rx="5"/><circle cx="17" cy="19" r="3"/><path d="m9 34 10-10 7 7 6-6 7 9"/></svg>
+            <span class="placeholder-label">Foto em breve</span>
+            <span class="product-tag tag-purple">Novidade</span>
+          </div>
+          <div class="product-copy">
+            <p class="product-category">COZINHA</p>
+            <h3 id="mini-liquidificador-title">Mini Liquidificador Portátil USB Fresh Juice</h3>
+            <p class="product-description">Um formato portátil para preparar bebidas e levar praticidade à rotina.</p>
+            <!-- Cole seu link meli.la no href abaixo. O botão será ativado ao recarregar a página. -->
+            <a class="button offer-button" href="" data-pending-offer aria-disabled="true" tabindex="-1" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver oferta de Mini Liquidificador Portátil USB Fresh Juice no Mercado Livre">Ver oferta <span>Link em breve</span></a>
+          </div>
+        </article>
       </div>
       <p class="catalog-note">Confira no anúncio a cor, as medidas, os acessórios e a voltagem antes de comprar.</p>
     </section>
@@ -92,6 +163,6 @@
     </section>
     <aside class="vip-banner shell" id="vip-banner" hidden aria-labelledby="vip-title"><div><p class="eyebrow">O PRÓXIMO ACHADO</p><h2 id="vip-title">Receba a seleção no Grupo VIP.</h2><p>Um lugar para acompanhar os achados do Garimpo Smart.</p></div><a class="button button-primary" data-vip-link hidden target="_blank" rel="noopener noreferrer">Entrar no Grupo VIP</a></aside>
   </main>
-  <footer class="footer shell"><a class="brand footer-brand" href="#inicio" aria-label="Garimpo Smart, voltar ao início"><img src="assets/logo.svg" width="32" height="32" alt=""><span>garimpo<span class="brand-smart">smart.</span></span></a><p>Curadoria independente · Links de afiliado.<br>Garimpo Smart não é uma loja do Mercado Livre.</p><a class="back-top" href="#inicio">Voltar ao início</a></footer>
+  <footer class="footer shell"><a class="brand footer-brand" href="#inicio" aria-label="Garimpo Smart, voltar ao início"><img src="assets/logo.svg" width="32" height="32" alt=""><span>garimpo<span class="brand-smart">smart.</span></span></a><p>Curadoria independente · Links de afiliado.<br>Garimpo Smart não é uma loja do Mercado Livre.</p><a class="back-top" href="#inicio">Voltar ao início</a><p class="footer-copyright">© 2026 Garimpo Smart by W&amp;S - Todos os direitos reservados</p></footer>
 </body>
 </html>

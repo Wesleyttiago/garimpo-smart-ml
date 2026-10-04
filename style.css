@@ -132,6 +132,14 @@ summary { cursor: pointer; }
 .footer-brand img { width: 32px; height: 32px; }
 .footer p { color: var(--muted); font-size: 12px; line-height: 1.7; flex: 1 0 100%; }
 .back-top { font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+/* Novos achados: espaço reservado até receber as fotos do anúncio. */
+.product-image-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--soft); color: var(--muted); }
+.product-image-placeholder svg { width: 48px; height: 48px; color: var(--purple); }
+.placeholder-label { font-size: 13px; }
+/* href vazio não deve abrir a própria página, mesmo com JavaScript desativado. */
+.offer-button[href=""] { pointer-events: none; background: var(--soft); color: var(--muted); }
+.footer .footer-copyright { flex: 0 0 100%; margin-top: 0; font-size: 11px; color: var(--muted); }
+
 @media (min-width: 620px) {
   .shell { width: min(1120px, calc(100% - 64px)); }
   .hero { grid-template-columns: 1.1fr 1fr; gap: 35px; padding-block: 55px 45px; align-items: center; }

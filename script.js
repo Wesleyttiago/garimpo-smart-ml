@@ -28,6 +28,18 @@
       try { localStorage.setItem(themeKey, savedTheme); } catch { /* Continue in this session. */ }
     });
 
+    // Preencha somente o href no HTML: os novos botões se ativam automaticamente.
+    document.querySelectorAll('[data-pending-offer]').forEach(link => {
+      if (link.getAttribute('href')?.trim()) {
+        link.removeAttribute('aria-disabled');
+        link.removeAttribute('tabindex');
+        link.removeAttribute('data-pending-offer');
+        link.querySelector('span').textContent = 'no Mercado Livre';
+      } else {
+        link.addEventListener('click', event => event.preventDefault());
+      }
+    });
+
     const filterButtons = [...document.querySelectorAll('[data-filter]')];
     const products = [...document.querySelectorAll('.product-card')];
     const resultCount = document.getElementById('result-count');
