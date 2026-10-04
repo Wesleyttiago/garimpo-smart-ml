@@ -87,7 +87,7 @@ bash manage.sh start
 
 Para parar, use `bash manage.sh stop`. O Windows, o WSL e os serviços precisam estar funcionando para executar agendas. Evite suspender o computador durante as execuções.
 
-A busca real e os links de afiliado ainda exigem as conexões autorizadas. A próxima automação poderá ser criada como outro fluxo nesse mesmo n8n.
+A busca real e os links de afiliado ainda exigem as conexões autorizadas. Para a conexão OAuth oficial, veja [CONECTAR-MERCADO-LIVRE.md](CONECTAR-MERCADO-LIVRE.md). A próxima automação poderá ser criada como outro fluxo nesse mesmo n8n.
 
 Fontes oficiais:
 

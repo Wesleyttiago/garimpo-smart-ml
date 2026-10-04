@@ -2,9 +2,11 @@ import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile, rename } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { runCatalog } from './core.mjs';
+import { createTokenLoader } from './oauth.mjs';
 
 const output = resolve(process.env.OUTPUT_DIR || 'output');
 await mkdir(output, { recursive: true });
+const accessToken = createTokenLoader({ output });
 let running = false;
 const reply = (res, status, data) => {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
@@ -36,7 +38,9 @@ const server = createServer(async (req, res) => {
       if (!input || !['demo', 'live'].includes(input.mode)) return reply(res, 400, { error: 'Informe mode: demo ou live.' });
       running = true;
       try {
-        const result = await runCatalog({ mode: input.mode });
+        const env = { ...process.env };
+        if (input.mode === 'live' && env.ENABLE_LIVE_SEARCH === 'true') env.ML_ACCESS_TOKEN = await accessToken();
+        const result = await runCatalog({ mode: input.mode }, env);
         const temporary = resolve(output, 'latest.tmp');
         await writeFile(temporary, JSON.stringify(result, null, 2) + '\n', { mode: 0o600 });
         await rename(temporary, resolve(output, 'latest.json'));
@@ -60,4 +64,3 @@ const server = createServer(async (req, res) => {
 });
 server.listen(Number(process.env.PORT || 8080), process.env.HOST || '0.0.0.0', () => console.log('Garimpo: servidor de revisão iniciado.'));
 for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => server.close(() => process.exit(0)));
-
