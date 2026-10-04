@@ -1,5 +1,7 @@
 # Seu n8n do zero
 
+> **Está no Windows 11?** Comece pelo [guia para Windows e WSL](WINDOWS-11.md).
+
 Wesley, este guia prepara o n8n no seu computador. Você executa a instalação no seu Linux; a configuração e o fluxo foram testados antes de chegarem aqui.
 
 ## O que vamos instalar
