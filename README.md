@@ -4,7 +4,7 @@ O projeto agora tem duas áreas:
 
 | Área | Endereço | Finalidade |
 | --- | --- | --- |
-| Casa & rotina | https://wesleyttiago.github.io/garimpo-smart-ml/blog/ | Blog público com nove guias e recomendações dos dez produtos da vitrine anterior. |
+| Casa & rotina | https://wesleyttiago.github.io/garimpo-smart-ml/blog/ | Blog público com nove guias e 18 ideias de produtos organizadas por ambiente. |
 | Curadoria | https://wesleyttiago.github.io/garimpo-smart-ml/ | Página para comparar resultados importados da automação, somente no navegador. |
 | Revisão local | http://localhost:8078 | Servidor da automação no computador configurado; acesso aos resultados e ao teste DEMO. |
 | n8n local | http://localhost:5678 | Execução e edição dos fluxos no computador configurado. |
@@ -20,11 +20,13 @@ Abra `http://localhost:8000/blog/` para o blog ou `http://localhost:8000/` para 
 ## Atualizar o blog
 
 - Edite `blog/content.json` ou `blog/more-content.json` para alterar os guias.
-- Edite `blog/products.json` para atualizar produtos, links e contexto.
+- Edite `blog/products.json` ou `blog/research-products.json` para atualizar produtos, links e contexto.
+- Edite `blog/rooms.json` para ajustar os ambientes.
+- Veja as fontes e prioridades em [`blog/CURADORIA.md`](blog/CURADORIA.md).
 - Coloque as fotos confirmadas em `blog/assets/`, incluindo texto alternativo e dimensões nos dados.
 - Execute `node blog/build.mjs`, confira as páginas alteradas e faça o commit dos dados e HTML gerados.
 
-As cinco ofertas antigas mantêm seus links principais e alternativos, exatamente como foram fornecidos. Os cinco itens sem anúncio escolhido continuam **Em curadoria**, sem link de compra ou foto fictícia. Todos os dez estão em `blog/recomendacoes.html`. Confira modelo, destino e condições antes de anunciar. Os links de afiliado usam `rel="sponsored noopener noreferrer"`.
+As cinco ofertas antigas mantêm seus links principais e alternativos, exatamente como foram fornecidos. Os cinco itens iniciais sem anúncio escolhido e as oito novas seleções continuam **Em curadoria**, sem link de compra ou foto fictícia. As 18 ideias estão em `blog/recomendacoes.html`. Confira modelo, destino e condições antes de anunciar. Os links de afiliado usam `rel="sponsored noopener noreferrer"`.
 
 ## Vitrine de candidatos
 

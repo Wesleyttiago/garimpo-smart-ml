@@ -1,7 +1,7 @@
 # Garimpo Smart · Casa & rotina
 
-Nove guias, dez ideias de produtos e treze páginas estáticas.
+Nove guias e 18 ideias de produtos, filtradas por sete ambientes.
 
-Edite content.json, more-content.json ou products.json e execute `node blog/build.mjs` a partir da raiz do repositório. As páginas são geradas na pasta blog/. As fotos, o CSS e o JavaScript ficam em assets/. Cinco itens sem oferta confirmada permanecem em curadoria.
+Edite content.json ou more-content.json para os artigos, products.json para os produtos iniciais e research-products.json para as oito novas ideias. rooms.json define os ambientes. Execute `node blog/build.mjs` a partir da raiz para gerar as páginas.
 
-Veja o README da raiz para publicação e separação da automação.
+CURADORIA.md registra fontes, modelos, critérios e prioridades de testes. As cinco ofertas existentes mantêm seus links; os 13 itens sem oferta definida ficam em curadoria. Os filtros aceitam mais de um ambiente por produto.

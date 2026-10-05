@@ -13,23 +13,31 @@ document.getElementById('reset-search')?.addEventListener('click',()=>{search.va
 const productCards=[...document.querySelectorAll('[data-product-card]')];
 const productSearch=document.getElementById('product-search');
 const productButtons=[...document.querySelectorAll('[data-product-filter]')];
-let productCategory='Todas';
+let productRoom='Todas';
+const roomSlug=s=>normalize(s).replace(/\s+/g,'-');
 function filterProducts(){
   if(!productSearch)return;
   const q=normalize(productSearch.value.trim());let total=0,offers=0;
   for(const card of productCards){
-    const show=(productCategory==='Todas'||card.dataset.productCategory===productCategory)&&normalize(card.dataset.productSearch).includes(q);
+    const rooms=JSON.parse(card.dataset.productRooms);
+    const show=(productRoom==='Todas'||rooms.includes(productRoom))&&normalize(card.dataset.productSearch).includes(q);
     card.hidden=!show;if(show){total++;if(card.querySelector('a[rel~="sponsored"]'))offers++;}
   }
   for(const section of document.querySelectorAll('[data-product-section]'))section.hidden=![...section.querySelectorAll('[data-product-card]')].some(card=>!card.hidden);
   document.getElementById('product-status').textContent=total+' '+(total===1?'ideia':'ideias')+' · '+offers+' com link de oferta · '+(total-offers)+' em curadoria';
   document.getElementById('product-empty').hidden=total!==0;
 }
-for(const button of productButtons)button.addEventListener('click',()=>{
-  productCategory=button.dataset.productFilter;
+function setProductRoom(button,updateUrl=true){
+  productRoom=button.dataset.productFilter;
   for(const b of productButtons){b.classList.toggle('selected',b===button);b.setAttribute('aria-pressed',String(b===button));}
+  if(updateUrl){const url=new URL(location.href);if(productRoom==='Todas')url.searchParams.delete('ambiente');else url.searchParams.set('ambiente',roomSlug(productRoom));history.replaceState(null,'',url);}
   filterProducts();
-});
+}
+for(const button of productButtons)button.addEventListener('click',()=>setProductRoom(button));
 productSearch?.addEventListener('input',filterProducts);
 document.getElementById('reset-products')?.addEventListener('click',()=>{productSearch.value='';productButtons[0].click();productSearch.focus();});
-if(productSearch)filterProducts();
+if(productSearch){
+  const requested=new URLSearchParams(location.search).get('ambiente');
+  const button=productButtons.find(b=>roomSlug(b.dataset.productFilter)===requested)||productButtons[0];
+  setProductRoom(button,false);
+}

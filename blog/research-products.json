@@ -1,0 +1,243 @@
+[
+  {
+    "id": "rolo-tira-pelos",
+    "name": "Rolo tira-pelos lavável",
+    "category": "Casa",
+    "rooms": [
+      "Sala",
+      "Quarto"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Para retirar pelos e fiapos de tecidos e cuidar de um cantinho do sofá ou da roupa.",
+    "fit": "Uma ideia para quem convive com pelos nos tecidos e quer comparar uma opção lavável.",
+    "checks": [
+      "Indicação para o tecido que você pretende limpar",
+      "Como lavar e recuperar a aderência",
+      "Tamanho do rolo e facilidade de guardar"
+    ],
+    "limit": "O resultado depende do tecido e do modelo. A oferta no Mercado Livre ainda precisa de revisão.",
+    "guide": "casa-em-15-minutos",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "A",
+      "referenceModel": "Flash Limp FLP6497",
+      "sourceUrl": "https://www.flashlimp.com.br/rolo-adesivo-lavavel--remove-pelos-e-poeira--flash-limp/p",
+      "marketReference": "https://lista.mercadolivre.com.br/rolo-adesivo-lavavel-flashlimp",
+      "query": "rolo adesivo lavavel Flash Limp FLP6497",
+      "testAngle": "Mostrar a retirada de pelos em um trecho de tecido indicado pelo fabricante e a lavagem do rolo.",
+      "rationale": "Problema reconhecível e resultado visual. Hipótese para testar; não há taxa de conversão medida."
+    }
+  },
+  {
+    "id": "organizador-cabos",
+    "name": "Organizadores adesivos para cabos",
+    "category": "Casa",
+    "rooms": [
+      "Sala",
+      "Escritório"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Uma forma de manter pequenos cabos no lugar, perto do ponto em que você os usa.",
+    "fit": "Pode ajudar na mesa ou no móvel da sala quando fios pequenos ficam soltos e difíceis de encontrar.",
+    "checks": [
+      "Espessura do cabo e tamanho do canal",
+      "Superfícies permitidas para a fixação",
+      "Orientação de aplicação e remoção do adesivo"
+    ],
+    "limit": "Não substitui instalações elétricas. A remoção e a compatibilidade variam conforme o adesivo e a superfície.",
+    "guide": "achadinho-que-vale-a-pena",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "B",
+      "referenceModel": "Ordene OR15501, 1 canal",
+      "sourceUrl": "https://www.ordene.com.br/pt/produto-detalhe/organizador-para-cabos-1-canal-1",
+      "query": "organizador cabos Ordene OR15501 adesivo",
+      "testAngle": "Mostrar o mesmo cabo antes e depois de prender em um móvel compatível.",
+      "rationale": "Utilidade explicável em um vídeo curto. Confirmar fixação e custo total antes do teste."
+    }
+  },
+  {
+    "id": "organizador-giratorio",
+    "name": "Organizador giratório para a cozinha",
+    "category": "Cozinha",
+    "rooms": [
+      "Cozinha",
+      "Banheiro"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Para agrupar frascos e alcançar o que ficou atrás com um giro da base.",
+    "fit": "Pode fazer sentido em um armário ou bancada com espaço suficiente para a base girar.",
+    "checks": [
+      "Diâmetro, altura e espaço livre para girar",
+      "Tamanho dos frascos que serão colocados",
+      "Material e instruções de limpeza"
+    ],
+    "limit": "Uma base que não cabe na prateleira não resolve a organização. Meça o espaço antes de escolher.",
+    "guide": "cozinha-organizada",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "A",
+      "referenceModel": "Ou Clear baixo OCG900NT",
+      "sourceUrl": "https://www.ou.com.br/products/organizador-giratorio-baixo-clear",
+      "marketReference": "https://lista.mercadolivre.com.br/organizador-giratorio-transparente",
+      "query": "organizador giratorio baixo Ou Clear OCG900NT",
+      "testAngle": "Mostrar acesso aos frascos de trás e o espaço ocupado na prateleira.",
+      "rationale": "Benefício visual e necessidade cotidiana de organização. A prioridade é editorial, sem promessa de vendas."
+    }
+  },
+  {
+    "id": "pote-vidro-hermetico",
+    "name": "Pote de vidro com fechamento hermético",
+    "category": "Cozinha",
+    "rooms": [
+      "Cozinha"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Uma opção para enxergar os mantimentos e comparar a capacidade com o espaço da despensa.",
+    "fit": "Vale explorar quando você já identificou quais ingredientes quer organizar e em que quantidades.",
+    "checks": [
+      "Capacidade útil e medidas do recipiente",
+      "Conteúdo da embalagem e fechamento da tampa",
+      "Uso e limpeza autorizados pelo fabricante"
+    ],
+    "limit": "Vidro pesa e pode quebrar. Não presumimos indicação para forno, freezer ou micro-ondas.",
+    "guide": "despensa-sem-desperdicio",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "B",
+      "referenceModel": "Tramontina Purezza 1 L, 61227070",
+      "sourceUrl": "https://www.tramontina.com.br/pote-de-vidro-hermetico-tramontina-purezza-em-borossilicato-com-tampa-1-l/61227070.html",
+      "query": "pote vidro hermetico Tramontina Purezza 1 litro 61227070",
+      "testAngle": "Mostrar a organização de uma quantidade conhecida de mantimento e conferir a tampa sem simular testes de vedação.",
+      "rationale": "Relaciona-se aos guias existentes. Verificar frete, fragilidade e preço da unidade versus conjunto."
+    }
+  },
+  {
+    "id": "escova-cantos",
+    "name": "Escova para cantos e rejuntes",
+    "category": "Casa",
+    "rooms": [
+      "Banheiro",
+      "Área de serviço"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Uma ferramenta manual para comparar o acesso a cantos e pequenas áreas de limpeza.",
+    "fit": "Pode ajudar se as cerdas e o formato forem adequados ao rejunte e à superfície da sua casa.",
+    "checks": [
+      "Dureza das cerdas e superfície indicada",
+      "Formato do cabo e acesso ao canto",
+      "Lavagem, secagem e armazenamento da escova"
+    ],
+    "limit": "Não promete remover qualquer mancha. Siga a orientação da superfície e não misture produtos de limpeza.",
+    "guide": "limpeza-sem-acumulo",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "A",
+      "referenceModel": "Condor Escova Lava Cantos 1720",
+      "sourceUrl": "https://condor.ind.br/public/produto/limpeza/escova-lava-cantos",
+      "marketReference": "https://lista.mercadolivre.com.br/escova-lava-canto-condor",
+      "query": "escova lava cantos Condor 1720",
+      "testAngle": "Mostrar o formato alcançando um canto e um trecho de limpeza real, sem cortes que exagerem o resultado.",
+      "rationale": "Uso simples, sem recarga ou aplicativo. Confirmar cerdas e material da superfície antes da demonstração."
+    }
+  },
+  {
+    "id": "colmeia-gavetas",
+    "name": "Colmeia organizadora para gavetas",
+    "category": "Casa",
+    "rooms": [
+      "Quarto"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Divisórias para agrupar meias, roupas íntimas ou acessórios e enxergar o que está guardado.",
+    "fit": "Pode funcionar quando a gaveta comporta a peça e as divisórias combinam com os objetos que você usa.",
+    "checks": [
+      "Altura, largura e profundidade da gaveta",
+      "Quantidade e tamanho das divisórias",
+      "Material, lavagem e possibilidade de encaixe"
+    ],
+    "limit": "As medidas das colmeias variam. Confira o tamanho do modelo e evite kits que não cabem no seu móvel.",
+    "guide": "achadinho-que-vale-a-pena",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "A",
+      "referenceModel": "Ou Logic 35 × 12,5 × 7,5 cm",
+      "sourceUrl": "https://www.ou.com.br/products/colmeia-organizadora-ou-35x12-5x7-5cm-linha-logic",
+      "marketReference": "https://produto.mercadolivre.com.br/MLB-4061129187-colmeia-organizadora-ou-35x125x75cm-linha-logic-_JM",
+      "query": "colmeia organizadora Ou Logic 35 12,5 7,5",
+      "testAngle": "Mostrar a mesma gaveta antes e depois, com a mesma quantidade de peças.",
+      "rationale": "Mudança visual fácil de entender. Medidas claras são essenciais para reduzir uma escolha incompatível."
+    }
+  },
+  {
+    "id": "saco-vacuo",
+    "name": "Sacos a vácuo para roupas de cama",
+    "category": "Casa",
+    "rooms": [
+      "Quarto"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Uma opção para comparar o espaço ocupado por peças que ficam guardadas no armário.",
+    "fit": "Pode ser útil para organizar peças volumosas compatíveis com esse tipo de armazenamento.",
+    "checks": [
+      "Dimensões e sistema para retirar o ar",
+      "Compatibilidade com as peças e seus cuidados",
+      "Forma de fechar, reutilizar e guardar o saco"
+    ],
+    "limit": "Não prometemos uma redução fixa de volume. Respeite as instruções do saco e das peças guardadas.",
+    "guide": "comprar-para-a-casa",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "B",
+      "referenceModel": "Ordene Vac Bag Jumbo",
+      "sourceUrl": "https://www.lotshomeshop.com.br/saco-a-vacuo-organizador-jumbo-transparente-11-x-1m-vac-bag-ordene/p",
+      "query": "saco vacuo Ordene Vac Bag Jumbo",
+      "testAngle": "Mostrar o mesmo conteúdo antes e depois, esclarecendo o sistema usado para retirar o ar.",
+      "rationale": "Demonstração de volume tem apelo visual. A vedação, o material e os cuidados das peças exigem revisão.",
+      "sourceNote": "Modelo de referência conferido na loja indicada pelo fabricante. A página indicava esgotado; localizar oferta ativa e elegível no Mercado Livre antes de habilitar o botão."
+    }
+  },
+  {
+    "id": "bolsa-lavar-roupas",
+    "name": "Bolsa para lavar roupas delicadas",
+    "category": "Casa",
+    "rooms": [
+      "Área de serviço"
+    ],
+    "image": "",
+    "url": "",
+    "alternative": null,
+    "description": "Para separar pequenas peças durante uma lavagem permitida pela etiqueta da roupa.",
+    "fit": "Vale comparar para a organização das peças na máquina, seguindo as orientações da roupa e da bolsa.",
+    "checks": [
+      "Dimensões da bolsa e quantidade indicada",
+      "Fechamento do zíper e proteção do fecho",
+      "Compatibilidade com a lavagem e a peça de roupa"
+    ],
+    "limit": "A bolsa não torna uma roupa lavável na máquina. A etiqueta da peça continua sendo a referência.",
+    "guide": "lavanderia-descomplicada",
+    "research": {
+      "date": "2026-10-05",
+      "priority": "B",
+      "referenceModel": "Flash Limp LAV7702, 50 × 60 cm",
+      "sourceUrl": "https://www.flashlimp.com.br/bolsa-para-lavar-roupas-grande--flash-limp/p",
+      "query": "bolsa lavar roupas Flash Limp LAV7702 50 60",
+      "testAngle": "Mostrar como agrupar, fechar e retirar as peças, sem prometer aumento de durabilidade não medido.",
+      "rationale": "Problema de rotina reconhecível e produto simples de explicar. Comparar preço da unidade e frete."
+    }
+  }
+]

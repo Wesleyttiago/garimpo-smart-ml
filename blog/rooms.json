@@ -1,0 +1,9 @@
+[
+  {"name":"Sala","slug":"sala","description":"Tecidos, fios e pequenos cuidados para o lugar de estar."},
+  {"name":"Cozinha","slug":"cozinha","description":"Organização, preparo e escolhas que cabem na sua bancada."},
+  {"name":"Banheiro","slug":"banheiro","description":"Mais espaço para usar, guardar e cuidar dos detalhes."},
+  {"name":"Quarto","slug":"quarto","description":"Gavetas, armários e um cantinho com o seu jeito."},
+  {"name":"Área de serviço","slug":"area-de-servico","description":"Ferramentas para lavar, secar e concluir uma tarefa."},
+  {"name":"Escritório","slug":"escritorio","description":"Pequenos acessórios para uma mesa mais organizada."},
+  {"name":"Entrada","slug":"entrada","description":"Ideias para comparar o uso e a instalação perto do acesso."}
+]
