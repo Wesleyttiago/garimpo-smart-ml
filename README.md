@@ -1,67 +1,52 @@
 # Garimpo Smart
 
-**Site publicado:** [Abrir o Garimpo Smart](https://wesleyttiago.github.io/garimpo-smart-ml/)
+O projeto agora tem duas áreas:
 
-Vitrine mobile-first de achadinhos: casa, cozinha, decoração e tecnologia. Feita com HTML5, CSS3 e JavaScript puro, sem dependências, fontes externas ou etapa de build.
+| Área | Endereço | Finalidade |
+| --- | --- | --- |
+| Casa & rotina | https://wesleyttiago.github.io/garimpo-smart-ml/blog/ | Blog público com nove guias e recomendações dos dez produtos da vitrine anterior. |
+| Curadoria | https://wesleyttiago.github.io/garimpo-smart-ml/ | Página para comparar resultados importados da automação, somente no navegador. |
+| Revisão local | http://localhost:8078 | Servidor da automação no computador configurado; acesso aos resultados e ao teste DEMO. |
+| n8n local | http://localhost:5678 | Execução e edição dos fluxos no computador configurado. |
 
-## Rodar localmente
+## Rodar o site localmente
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Abra `http://localhost:8000`. Também é possível abrir o `index.html` diretamente, pois a página não depende de chamadas a APIs.
+Abra `http://localhost:8000/blog/` para o blog ou `http://localhost:8000/` para a curadoria. O blog e a importação funcionam sem servidor de API. Os links de revisão e n8n só abrem quando esses serviços estão ativos no seu computador.
 
-## Arquivos
+## Atualizar o blog
 
-- `index.html`: conteúdo, cards, links de afiliado e perguntas sobre a compra.
-- `style.css`: estilos mobile-first, modos claro/escuro e redução de movimento.
-- `script.js`: filtros, preferência de tema e ativação opcional do grupo VIP.
-- `site-config.js`: configuração do grupo VIP.
-- `assets/`: marca SVG e fotografias WebP extraídas das imagens de anúncios fornecidas pelo proprietário. As capturas originais de conversa não fazem parte do projeto.
+- Edite `blog/content.json` ou `blog/more-content.json` para alterar os guias.
+- Edite `blog/products.json` para atualizar produtos, links e contexto.
+- Coloque as fotos confirmadas em `blog/assets/`, incluindo texto alternativo e dimensões nos dados.
+- Execute `node blog/build.mjs`, confira as páginas alteradas e faça o commit dos dados e HTML gerados.
 
-## Atualizar um produto
+As cinco ofertas antigas mantêm seus links principais e alternativos, exatamente como foram fornecidos. Os cinco itens sem anúncio escolhido continuam **Em curadoria**, sem link de compra ou foto fictícia. Todos os dez estão em `blog/recomendacoes.html`. Confira modelo, destino e condições antes de anunciar. Os links de afiliado usam `rel="sponsored noopener noreferrer"`.
 
-Edite o `<article>` correspondente no `index.html`. Cada card contém título, descrição, imagem, categoria e o link de oferta. Os links começam com `https://meli.la/` e devem ser preservados exatamente, inclusive letras maiúsculas. Se substituir uma oferta, confira o modelo, a foto e a descrição juntos. Preserve `rel="sponsored noopener noreferrer"` nos links de afiliado.
+## Vitrine de candidatos
 
-Para cadastrar outro produto, duplique um card, escolha `data-category="casa"`, `"cozinha"`, `"decoracao"` ou `"tecnologia"`, e use identificadores exclusivos em `id` e `aria-labelledby`. Atualize o número do botão Todos e a contagem inicial. O filtro calcula as contagens após cada interação.
+Depois de executar o fluxo no ambiente local, abra a curadoria e selecione **`automation/output/latest.json`**. A página mostra os candidatos, razões da seleção, preço consultado ou fictício e pendências. A busca filtra nome e categoria; **Limpar resultados** remove os itens carregados.
 
-## Novos achados — links e fotos pendentes
+O arquivo é lido só na memória deste navegador: não há upload, consulta à API ou publicação no blog. Ao recarregar ou fechar a página, os resultados são descartados. A página é pública; resultados não são compartilhados com outros visitantes. Não carregue arquivos de credenciais. Apenas a preferência de tema usa `localStorage`.
 
-A vitrine contém **10 produtos**. Os cinco novos cards estão no `index.html`, com `href=""`:
+Arquivos DEMO e produtos marcados como simulação não exibem links de compra. Arquivos reais mostram links HTTPS dos domínios permitidos do Mercado Livre e meli.la; não comprovam comissão. Os candidatos escolhidos pelo backend são os que atendem aos critérios configurados, com comparação de preço entre opções elegíveis. Isso não comprova potencial de venda ou taxa de conversão.
 
-- `mini-impressora`: Mini Impressora Térmica Portátil Bluetooth.
-- `difusor-chama`: Umidificador Difusor de Ar Efeito Chama 3D.
-- `garrafa-termica-led`: Garrafa Térmica Inteligente Termômetro LED.
-- `camera-lampada`: Câmera Lâmpada de Segurança Wi-Fi 360º.
-- `mini-liquidificador`: Mini Liquidificador Portátil USB Fresh Juice.
+## Situação da API
 
-Cole o link encurtado **meli.la** no `href` do botão do produto e recarregue a página. O JavaScript remove o estado desativado e troca “Link em breve” por “no Mercado Livre”. Enquanto o endereço estiver vazio, o botão não navega nem recarrega o site. Os nove links das ofertas anteriores foram preservados.
+No último diagnóstico, autenticação e consultas de catálogo responderam; a pesquisa geral e consultas de anúncios retornaram 403. Essa entrega não altera scopes, IPs, tokens nem ativa pesquisa real. Não é possível afirmar que há ofertas vencedoras reais enquanto o acesso necessário não estiver liberado. Consulte a documentação em [`automation/`](automation/).
 
-As fotos dos novos modelos ainda não foram fornecidas. Para adicioná-las, substitua o conteúdo do `div.product-image-placeholder` por um `img` com caminho local, texto alternativo, largura, altura, `loading="lazy"` e `decoding="async"`; mantenha a tag de novidade se desejar e troque a classe `product-image-placeholder` por `product-image-contain`.
+As credenciais, o servidor e o n8n permanecem no ambiente local. O callback OAuth continua em `automation/oauth-callback.html`. A publicação do blog não muda esse endereço. Nenhuma publicação automática de candidatos foi ativada.
 
-Se usar o site sem JavaScript após preencher um link, remova também `aria-disabled="true"` e `tabindex="-1"` e altere o texto “Link em breve” no HTML.
+## Arquivos principais
 
-## Grupo VIP
+- `index.html`, `curation.css`, `curation.js`: curadoria e importação de resultados.
+- `blog/`: páginas do blog, artigos, recomendações, dados e gerador.
+- `automation/`: ambiente local e integração existente.
+- `assets/`: marca e imagens originais da vitrine anterior.
 
-O grupo fica oculto enquanto não há um endereço. Quando estiver pronto, coloque o convite em `vipGroupUrl` no `site-config.js`. São aceitos links HTTPS de `chat.whatsapp.com`, `t.me` ou `telegram.me`. O botão do cabeçalho e a seção VIP aparecerão automaticamente.
+## GitHub Pages
 
-## Catálogo inicial
-
-| Produto | Oferta principal | Outra opção |
-| --- | --- | --- |
-| Mini mop dobrável | https://meli.la/2JufCci | https://meli.la/31ZB3Gp — kit com 3 refis |
-| Lixeira com sensor, 12 L | https://meli.la/1vrfdF4 | https://meli.la/1GvgSVt — preta, 13 L |
-| Dispenser preto, 6 níveis | https://meli.la/1ke989s | https://meli.la/1gPKyUW — branco, suporte para 5 escovas |
-| Projetor astronauta | https://meli.la/2h4eeLT | — |
-| Mini processador verde USB | https://meli.la/1eCVpPD | https://meli.la/1N4gRYH — Knup branco, 250 ml |
-
-Os endereços e as informações acima foram transcritos dos prints fornecidos. Os links encurtados não puderam ser consultados pelo ambiente de desenvolvimento; confira os destinos em um navegador comum antes de investir em anúncios. A página exibe os preços na origem e usa “Ver oferta”, pois os prints não incluem desconto ou preço confirmado. Os rótulos descrevem o uso e a categoria, sem afirmar popularidade não verificada no TikTok.
-
-## Publicação no GitHub Pages
-
-No repositório, abra **Settings → Pages → Deploy from a branch**. Selecione `main` e `/ (root)`. O arquivo `.nojekyll` permite servir os arquivos estáticos diretamente.
-
-## Privacidade e acessibilidade
-
-Não há formulários, cookies de rastreamento ou pixels instalados. A preferência de tema fica apenas no dispositivo (`localStorage`), e o site continua funcionando quando o armazenamento é bloqueado. Os links de compra funcionam sem JavaScript; os filtros dependem de JavaScript. Há links de salto, foco visível, controles nativos, textos alternativos, contagem acessível e respeito a `prefers-reduced-motion`.
+Mantenha **Settings → Pages → Deploy from a branch → main → / (root)**. O blog fica disponível no caminho `/blog/`, sem mudar a configuração existente. O arquivo `.nojekyll` permite servir os arquivos estáticos.

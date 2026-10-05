@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mini-mop", "name": "Mini mop portátil dobrável", "category": "Casa",
+    "image": "mini-mop.webp", "width": 530, "height": 447,
+    "alt": "Mini mop branco dobrável sendo usado em uma superfície pequena.",
+    "url": "https://meli.la/2JufCci", "alternative": {"url": "https://meli.la/31ZB3Gp", "label": "Outra opção: kit com 3 refis"},
+    "description": "Para pequenos respingos e cantinhos que pedem uma ferramenta compacta.",
+    "fit": "Pode fazer sentido para quem limpa bancadas e superfícies pequenas com frequência.",
+    "checks": ["Medidas e superfície indicada pelo fabricante", "Material, lavagem e disponibilidade de refis", "Como funciona a dobra e a retirada de água"],
+    "limit": "Não substitui os utensílios para limpar uma área grande.", "guide": "limpeza-sem-acumulo"
+  },
+  {
+    "id": "lixeira-sensor", "name": "Lixeira automática com sensor", "category": "Casa",
+    "image": "lixeira-sensor.webp", "width": 530, "height": 514,
+    "alt": "Lixeira branca com faixa laranja e tampa automática.",
+    "url": "https://meli.la/1vrfdF4", "alternative": {"url": "https://meli.la/1GvgSVt", "label": "Outra opção: preta, 13 litros"},
+    "description": "Uma opção de abertura sem toque para o lugar onde você já precisa de uma lixeira.",
+    "fit": "Vale comparar quando abrir a tampa com as mãos ocupadas é uma dificuldade recorrente.",
+    "checks": ["Capacidade e medidas com a tampa aberta", "Alimentação, recarga ou pilhas do modelo", "Limpeza do recipiente e proteção do sensor"],
+    "limit": "A foto e a opção principal correspondem ao modelo de 12 litros; a alternativa tem outras características.", "guide": "achadinho-que-vale-a-pena"
+  },
+  {
+    "id": "dispenser-pasta", "name": "Dispenser de pasta de dente", "category": "Casa",
+    "image": "dispenser-pasta.webp", "width": 386, "height": 538,
+    "alt": "Dispenser preto de pasta de dente com escova abaixo da saída.",
+    "url": "https://meli.la/1ke989s", "alternative": {"url": "https://meli.la/1gPKyUW", "label": "Outra opção: branco com suporte para 5 escovas"},
+    "description": "Para comparar uma forma diferente de organizar o uso da pasta na bancada do banheiro.",
+    "fit": "Pode ajudar se houver uma área adequada para instalar, usar e limpar a peça.",
+    "checks": ["Compatibilidade com o tubo de pasta", "Fixação e espaço necessário para a escova", "Como desmontar e limpar conforme o manual"],
+    "limit": "Confira no anúncio o funcionamento e os seis níveis do modelo preto. A opção branca é outro modelo.", "guide": "banheiro-pequeno-organizado"
+  },
+  {
+    "id": "projetor-astronauta", "name": "Projetor astronauta galáxia", "category": "Decoração",
+    "image": "projetor-astronauta.webp", "width": 529, "height": 510,
+    "alt": "Projetor em formato de astronauta acompanhado de controle e cabo USB.",
+    "url": "https://meli.la/2h4eeLT", "alternative": null,
+    "description": "Um ponto de luz decorativo para mudar a atmosfera de um cantinho.",
+    "fit": "Faz sentido para quem procura iluminação de efeito e tem onde posicionar o aparelho.",
+    "checks": ["Alimentação e itens incluídos na embalagem", "Controle, efeitos e ajustes do modelo anunciado", "Orientações de uso e posicionamento da luz"],
+    "limit": "É uma sugestão decorativa. Não prometemos benefícios para o sono nem desempenho sem teste.", "guide": "comprar-para-a-casa"
+  },
+  {
+    "id": "mini-processador", "name": "Mini processador de alimentos USB", "category": "Cozinha",
+    "image": "mini-processador.webp", "width": 529, "height": 515,
+    "alt": "Mini processador verde com recipiente transparente e lâminas.",
+    "url": "https://meli.la/1eCVpPD", "alternative": {"url": "https://meli.la/1N4gRYH", "label": "Outra opção: Knup branco, 250 ml"},
+    "description": "Um formato pequeno para comparar com a quantidade que você costuma preparar.",
+    "fit": "Pode ser uma opção para pequenas porções, dentro dos usos permitidos pelo fabricante.",
+    "checks": ["Capacidade útil e alimentos permitidos", "Tipo de alimentação e instruções de recarga", "Limpeza das lâminas e separação das partes elétricas"],
+    "limit": "Não presume a força ou a função de um aparelho maior. Confira a especificação elétrica no anúncio.", "guide": "mini-processador-ou-liquidificador"
+  },
+  {
+    "id": "mini-impressora", "name": "Mini impressora térmica portátil Bluetooth", "category": "Tecnologia",
+    "image": "", "url": "", "alternative": null,
+    "description": "Em curadoria: uma ideia para comparar na hora de criar etiquetas e organizar informações.",
+    "fit": "Depende do tipo de impressão de que você precisa e da compatibilidade com seu celular.",
+    "checks": ["Aplicativo e sistemas compatíveis", "Largura e custo do papel de reposição", "Tipo de impressão e formato do arquivo aceito"],
+    "limit": "Ainda não há modelo, foto ou oferta definidos.", "guide": "despensa-sem-desperdicio"
+  },
+  {
+    "id": "difusor-chama", "name": "Umidificador difusor com efeito chama 3D", "category": "Decoração",
+    "image": "", "url": "", "alternative": null,
+    "description": "Em curadoria: uma opção de efeito visual para comparar com o espaço disponível.",
+    "fit": "Antes de escolher, confira a finalidade exata do aparelho e as condições de uso do ambiente.",
+    "checks": ["Capacidade do reservatório e alimentação", "Água e substâncias autorizadas pelo fabricante", "Frequência de limpeza e forma de desligamento"],
+    "limit": "O efeito chama é decorativo. Não apresentamos promessa de benefício à saúde.", "guide": "comprar-para-a-casa"
+  },
+  {
+    "id": "garrafa-termica-led", "name": "Garrafa térmica com termômetro LED", "category": "Cozinha",
+    "image": "", "url": "", "alternative": null,
+    "description": "Em curadoria: uma garrafa para comparar capacidade, vedação e leitura da temperatura.",
+    "fit": "Pode fazer sentido se você costuma levar bebidas e precisa de um recipiente fácil de cuidar.",
+    "checks": ["Capacidade e materiais do modelo", "Limpeza da tampa e funcionamento do visor", "Vedação e indicação para as bebidas desejadas"],
+    "limit": "Sem oferta definida, não afirmamos precisão ou tempo de conservação da temperatura.", "guide": "achadinho-que-vale-a-pena"
+  },
+  {
+    "id": "camera-lampada", "name": "Câmera lâmpada de segurança Wi-Fi 360º", "category": "Tecnologia",
+    "image": "", "url": "", "alternative": null,
+    "description": "Em curadoria: uma opção para comparar instalação e acesso às imagens.",
+    "fit": "Só vale escolher depois de verificar compatibilidade, instalação e privacidade do espaço.",
+    "checks": ["Soquete, alimentação e rede compatível", "Aplicativo, armazenamento e eventual assinatura", "Controles de acesso, posicionamento e manual"],
+    "limit": "Não tratamos o produto como garantia de segurança. Modelo e link ainda precisam ser escolhidos.", "guide": "comprar-para-a-casa"
+  },
+  {
+    "id": "mini-liquidificador", "name": "Mini liquidificador portátil USB Fresh Juice", "category": "Cozinha",
+    "image": "", "url": "", "alternative": null,
+    "description": "Em curadoria: um aparelho compacto para comparar com o tipo de preparo da sua rotina.",
+    "fit": "Observe a porção, os ingredientes permitidos e a forma de limpeza antes de decidir.",
+    "checks": ["Capacidade útil e limites de uso", "Recarga, montagem e funcionamento", "Partes laváveis e peças de reposição"],
+    "limit": "Não afirmamos que tritura gelo ou alimentos duros. Falta escolher o anúncio e o modelo.", "guide": "mini-processador-ou-liquidificador"
+  }
+]
