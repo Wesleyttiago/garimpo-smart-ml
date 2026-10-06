@@ -1,0 +1,447 @@
+{
+  "id": "garimpoAdsPilot01",
+  "name": "Garimpo Smart - pesquisa de anuncios (piloto)",
+  "active": false,
+  "nodes": [
+    {
+      "id": "manual",
+      "name": "Testar pesquisa",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "params",
+      "name": "Parametros do piloto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        180
+      ],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"criarNovaColeta\": false,\n  \"runId\": \"\",\n  \"produtoId\": \"mini-mop\",\n  \"limite\": 10,\n  \"custoMaximoUsd\": 0.25\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "validate",
+      "name": "Validar limites",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        180
+      ],
+      "parameters": {
+        "jsCode": "function configurarPesquisa(config) {\n  const terms = {'mini-mop':'mini mop','dispenser-pasta':'dispenser pasta','mini-processador':'mini processador'};\n  if (!Object.prototype.hasOwnProperty.call(terms, config.produtoId)) throw new Error('Selecione um produto do piloto.');\n  if (typeof config.criarNovaColeta !== 'boolean') throw new Error('criarNovaColeta deve ser verdadeiro ou falso.');\n  if (!Number.isInteger(config.limite) || config.limite < 1 || config.limite > 10) throw new Error('O piloto permite de 1 a 10 anúncios.');\n  if (!Number.isFinite(config.custoMaximoUsd) || config.custoMaximoUsd <= 0 || config.custoMaximoUsd > 0.25) throw new Error('O teto do piloto é US$ 0,25 por coleta.');\n  if (!config.criarNovaColeta && !/^[a-zA-Z0-9]{17}$/.test(config.runId || '')) throw new Error('Informe o Run ID privado da Apify ou escolha criarNovaColeta=true.');\n  const term = terms[config.produtoId];\n  return {...config, input:{\n    startUrls:[{url:'https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=BR&q=' + encodeURIComponent(term) + '&search_type=keyword_unordered'}],\n    resultsLimit: config.limite, onlyTotal:false, includeAboutPage:false,\n    isDetailsPerAd:false, enrichWithEcommerceData:false\n  }};\n}\nreturn [{json:configurarPesquisa($input.first().json)}];"
+      }
+    },
+    {
+      "id": "new",
+      "name": "Criar nova coleta?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        720,
+        180
+      ],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.criarNovaColeta }}",
+              "operation": "equal",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "all"
+      }
+    },
+    {
+      "id": "start",
+      "name": "Iniciar coleta Apify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        40
+      ],
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "method": "POST",
+        "url": "https://api.apify.com/v2/actors/apify~facebook-ads-scraper/runs",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "timeout",
+              "value": "300"
+            },
+            {
+              "name": "maxTotalChargeUsd",
+              "value": "={{ $json.custoMaximoUsd }}"
+            },
+            {
+              "name": "restartOnError",
+              "value": "false"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.input) }}"
+      },
+      "retryOnFail": false
+    },
+    {
+      "id": "get",
+      "name": "Consultar execucao Apify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        180
+      ],
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "url": "={{ \"https://api.apify.com/v2/actor-runs/\" + ($json.data?.id || $json.id || $json.runId) }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "waitForFinish",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "retryOnFail": false
+    },
+    {
+      "id": "status",
+      "name": "Conferir status",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        180
+      ],
+      "parameters": {
+        "jsCode": "const run = $input.first().json.data;\nif (!run || !/^[a-zA-Z0-9]{17}$/.test(run.id || '')) throw new Error('Resposta de execução inválida.');\nif (run.status === 'SUCCEEDED') {\n  if (!/^[a-zA-Z0-9]{17}$/.test(run.defaultDatasetId || '')) throw new Error('Dataset ausente.');\n  return [{json:{...run,pronto:true}}];\n}\nif (!['READY','RUNNING'].includes(run.status)) throw new Error('Coleta encerrada com status ' + run.status + '. Confira a execução na Apify; não reinicie automaticamente.');\nif ($runIndex >= 19) throw new Error('Limite de espera atingido. Consulte a mesma execução depois, sem iniciar outra coleta.');\nreturn [{json:{...run,pronto:false}}];"
+      }
+    },
+    {
+      "id": "ready",
+      "name": "Coleta concluida?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        180
+      ],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.pronto }}",
+              "operation": "equal",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "all"
+      }
+    },
+    {
+      "id": "wait",
+      "name": "Aguardar 5 segundos",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1680,
+        420
+      ],
+      "parameters": {
+        "resume": "timeInterval",
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "webhookId": "b75cd631-f93e-4e25-a327-cbdbf74ecf20"
+    },
+    {
+      "id": "dataset",
+      "name": "Buscar anuncios Apify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        100
+      ],
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "url": "={{ \"https://api.apify.com/v2/datasets/\" + $json.defaultDatasetId + \"/items\" }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "format",
+              "value": "json"
+            },
+            {
+              "name": "clean",
+              "value": "true"
+            },
+            {
+              "name": "limit",
+              "value": "={{ $(\"Validar limites\").first().json.limite }}"
+            }
+          ]
+        }
+      },
+      "retryOnFail": false,
+      "alwaysOutputData": true
+    },
+    {
+      "id": "normalize",
+      "name": "Filtrar e organizar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        100
+      ],
+      "parameters": {
+        "jsCode": "function normalizarAnuncios(records, options = {}) {\n  if (!Array.isArray(records)) throw new Error('A saída do coletor deve ser uma lista.');\n  const collectedAt = options.coletadoEm || new Date().toISOString();\n  const clock = Date.parse(collectedAt);\n  if (!Number.isFinite(clock)) throw new Error('Data de coleta inválida.');\n  const productId = options.produtoId || 'mini-mop';\n  const fold = value => String(value ?? '').normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase();\n  const text = value => typeof value === 'string' ? value : String(value?.text ?? '');\n  const matches = value => {\n    const haystack = fold(value);\n    if (productId === 'mini-mop') return /\\bmini[\\s_-]*mop\\b/.test(haystack);\n    if (productId === 'dispenser-pasta') return /\\b(dispenser|dispensador)\\b/.test(haystack) && /\\b(pasta|dent[ea])\\b/.test(haystack);\n    if (productId === 'mini-processador') return /\\bmini[\\s_-]*(processador|triturador)\\b/.test(haystack);\n    throw new Error('Produto fora da lista do piloto.');\n  };\n  const safeUrl = value => /^https?:\\/\\//i.test(String(value || '')) ? String(value) : null;\n  const date = (iso, epoch) => {\n    const value = iso ? Date.parse(iso) : Number.isFinite(epoch) && epoch > 0 ? epoch * 1000 : NaN;\n    return Number.isFinite(value) && value <= clock ? new Date(value).toISOString() : null;\n  };\n  const seen = new Set();\n  const candidates = [];\n  const rejected = [];\n  let duplicateCount = 0;\n  for (const record of records) {\n    if (!record || typeof record !== 'object') throw new Error('Item inválido na saída.');\n    const id = String(record.adArchiveId || record.adArchiveID || record.ad_archive_id || '');\n    const publisher = record.pageName || record.snapshot?.pageName || null;\n    if (!/^\\d+$/.test(id)) {\n      rejected.push({anuncioId: null, anunciante: publisher, motivo: 'ID de anúncio ausente ou inválido'});\n      continue;\n    }\n    if (seen.has(id)) { duplicateCount++; continue; }\n    seen.add(id);\n    const snapshot = record.snapshot || {};\n    const cards = Array.isArray(snapshot.cards) ? snapshot.cards : [];\n    // Check each card separately: a catalog containing \"Mini ar\" and a floor\n    // mop on different cards must not match the portable mini mop.\n    const relevantCards = cards.filter(card => matches([card.title, text(card.body), card.linkUrl].join(' ')));\n    const mainText = [snapshot.title, text(snapshot.body), snapshot.linkUrl].join(' ');\n    if (!matches(mainText) && relevantCards.length === 0) {\n      rejected.push({anuncioId: id, anunciante: publisher, motivo: 'Produto não corresponde ao piloto'});\n      continue;\n    }\n    if (record.isActive === false) {\n      rejected.push({anuncioId: id, anunciante: publisher, motivo: 'Anúncio informado como inativo'});\n      continue;\n    }\n    const body = text(snapshot.body) || text(relevantCards[0]?.body);\n    const videos = [...(Array.isArray(snapshot.videos) ? snapshot.videos : []), ...relevantCards];\n    const images = [...(Array.isArray(snapshot.images) ? snapshot.images : []), ...relevantCards];\n    const videoUrl = videos.map(video => safeUrl(video.videoHdUrl || video.videoSdUrl)).find(Boolean) || null;\n    const imageUrl = images.map(image => safeUrl(image.originalImageUrl || image.resizedImageUrl || image.videoPreviewImageUrl)).find(Boolean) || null;\n    const startedAt = date(record.startDateFormatted, record.startDate);\n    const age = startedAt ? Math.floor((clock - Date.parse(startedAt)) / 86400000) : null;\n    const cta = snapshot.ctaText || relevantCards[0]?.ctaText || null;\n    const reasons = ['Correspondência textual com o produto (+4)'];\n    let priority = 4;\n    if (record.isActive === true) { priority += 1; reasons.push('Informado como ativo (+1)'); }\n    if (videoUrl) { priority += 1; reasons.push('Vídeo disponível para revisão (+1)'); }\n    if (cta) { priority += 1; reasons.push('Chamada para ação disponível (+1)'); }\n    candidates.push({\n      anuncioId: id, produtoId: productId, anunciante: publisher,\n      paginaUrl: safeUrl(snapshot.pageProfileUri),\n      bibliotecaUrl: 'https://www.facebook.com/ads/library/?id=' + id,\n      titulo: text(snapshot.title) || text(relevantCards[0]?.title) || null,\n      texto: body || null, chamadaParaAcao: cta,\n      destinoUrl: safeUrl(relevantCards[0]?.linkUrl || snapshot.linkUrl),\n      videoUrl, imagemUrl: imageUrl, formato: snapshot.displayFormat || null,\n      ativo: typeof record.isActive === 'boolean' ? record.isActive : null,\n      plataformas: Array.isArray(record.publisherPlatform) ? record.publisherPlatform : [],\n      inicioInformado: startedAt, diasDesdeInicioInformado: age, coletadoEm: collectedAt,\n      prioridadeRevisao: priority, motivosPrioridade: reasons,\n      desempenho: {vendas: null, lucro: null, roas: null},\n      revisaoHumana: 'Conferir produto e mídia; a pontuação não estima desempenho comercial.'\n    });\n  }\n  candidates.sort((a,b) => b.prioridadeRevisao - a.prioridadeRevisao || a.anuncioId.localeCompare(b.anuncioId));\n  const publishers = [...new Set(candidates.map(ad => ad.anunciante).filter(Boolean))];\n  return {\n    versao: 1, produtoId: productId, coletadoEm: collectedAt,\n    resumo: {recebidos: records.length, duplicadosPorId: duplicateCount, relevantes: candidates.length, descartados: rejected.length, anunciantesDistintos: publishers.length},\n    anunciantes: publishers,\n    criterio: 'Prioridade de revisão por correspondência, status, vídeo e CTA; não é ranking de vendas.',\n    limiteEvidencia: 'Dias desde o início informado não comprovam veiculação contínua. Métricas de venda e lucro não foram fornecidas.',\n    anuncios: candidates, descartados: rejected\n  };\n}\nconst records = $input.all().flatMap(item => Array.isArray(item.json) ? item.json : Object.keys(item.json).length ? [item.json] : []);\nconst params = $('Validar limites').first().json;\nreturn [{json:normalizarAnuncios(records,{produtoId:params.produtoId})}];"
+      }
+    },
+    {
+      "id": "download",
+      "name": "Baixar relatorio JSON",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2400,
+        100
+      ],
+      "parameters": {
+        "operation": "toJson",
+        "mode": "each",
+        "binaryPropertyName": "data",
+        "options": {
+          "fileName": "garimpo-pesquisa-anuncios.json",
+          "format": true
+        }
+      }
+    },
+    {
+      "id": "guide",
+      "name": "Como conectar",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -260
+      ],
+      "parameters": {
+        "content": "## Primeiro uso\n1. Importe e abra Parametros do piloto.\n2. A cópia pessoal reutiliza a coleta já feita.\n3. Nos 3 nós Apify, escolha a mesma credencial Header Auth: Authorization / Bearer + sua chave (somente no n8n).\n4. Execute Testar pesquisa.\n5. Baixe o relatório no último nó.\nSem agenda. US$ 0,25 e 10 resultados por nova coleta.\nNão copie Run IDs ou chaves para o GitHub.",
+        "height": 340,
+        "width": 660
+      }
+    },
+    {
+      "id": "evidence",
+      "name": "Sobre os resultados",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        360
+      ],
+      "parameters": {
+        "content": "## Critério de revisão\nA busca pode trazer itens sem relação. O filtro confere nome, texto e cartões, removendo IDs duplicados da mesma coleta.\nA pontuação só ajuda a revisar referências; vendas/lucro/ROAS ficam desconhecidos.\nHistórico entre consultas e agenda serão configurados após validar a instalação local.",
+        "height": 270,
+        "width": 660
+      }
+    }
+  ],
+  "connections": {
+    "Testar pesquisa": {
+      "main": [
+        [
+          {
+            "node": "Parametros do piloto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parametros do piloto": {
+      "main": [
+        [
+          {
+            "node": "Validar limites",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar limites": {
+      "main": [
+        [
+          {
+            "node": "Criar nova coleta?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criar nova coleta?": {
+      "main": [
+        [
+          {
+            "node": "Iniciar coleta Apify",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Consultar execucao Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Iniciar coleta Apify": {
+      "main": [
+        [
+          {
+            "node": "Consultar execucao Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consultar execucao Apify": {
+      "main": [
+        [
+          {
+            "node": "Conferir status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conferir status": {
+      "main": [
+        [
+          {
+            "node": "Coleta concluida?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Coleta concluida?": {
+      "main": [
+        [
+          {
+            "node": "Buscar anuncios Apify",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aguardar 5 segundos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aguardar 5 segundos": {
+      "main": [
+        [
+          {
+            "node": "Consultar execucao Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar anuncios Apify": {
+      "main": [
+        [
+          {
+            "node": "Filtrar e organizar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar e organizar": {
+      "main": [
+        [
+          {
+            "node": "Baixar relatorio JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Recife",
+    "executionTimeout": 600,
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": []
+}

@@ -1,0 +1,5 @@
+dist/garimpo-pesquisa-anuncios-n8n.json
+dist/primeira-pesquisa.json
+runtime/
+node_modules/
+.env

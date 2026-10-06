@@ -1,6 +1,8 @@
 # Pesquisa de anúncios — piloto Garimpo Smart
 
-Status: configuração preparada em 06/10/2026; coleta real e integração no n8n ainda não executadas. Nenhuma campanha identificada como vencedora. Nenhuma assinatura paga ou agendamento criado.
+Status atualizado em 06/10/2026: coleta real concluída na Apify (10 registros, 7 relevantes do mesmo anunciante, consumo informado US$ 0,058). Workflow criado e validado no n8n com API simulada; falta importar e conectar a credencial na instalação local do usuário. Nenhuma campanha identificada como vencedora, assinatura paga ou agendamento criado.
+
+Consulte o [guia do workflow n8n](pesquisa-anuncios/README.md), o [workflow público para importar](pesquisa-anuncios/workflow.json) e a [primeira pesquisa analisada](pesquisa-anuncios/PRIMEIRA-PESQUISA.md). A cópia pessoal entregue na conversa já reutiliza a primeira coleta, sem token.
 
 ## Primeiro teste: até 10 anúncios
 
