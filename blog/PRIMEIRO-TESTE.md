@@ -1,6 +1,6 @@
 # Primeiro teste de interesse — Garimpo Smart
 
-Integração ativada em 5 de outubro de 2026 para o fluxo `G-BMC6B1S9XF`, após o responsável confirmar que desativou a medição otimizada. Conta: **W&S LTDA**; fluxo: **Garimpo Smart Blog — Web**. A coleta exige aceitação do visitante e a chegada dos eventos ao painel ainda precisa ser conferida. Não há vendas ou comissões comprovadas nesta entrega.
+Integração migrada em 5 de outubro de 2026 para o fluxo `G-W03Z68ENB9`. Conta: **W&S LTDA** (`410878074`); propriedade: **Garimpo Smart Blog** (`557601441`); fluxo: **Garimpo Smart Blog — Web** (`16049963819`). Medição otimizada desativada e seis dimensões de evento cadastradas. A coleta exige aceitação do visitante; o recebimento no novo painel deve ser validado após a publicação. A propriedade anterior foi preservada. Não há vendas ou comissões comprovadas nesta entrega.
 
 ## Seleção inicial provisória
 
@@ -38,7 +38,7 @@ O visitante pode recusar ou rever a decisão no rodapé. O Google só é carrega
 
 Uma impressão é contada uma vez por produto/posição em cada carregamento da página. Somente produtos com link são observados. Se o navegador não oferece IntersectionObserver, os cliques continuam sendo medidos, mas impressões não são presumidas. Buscas digitadas, telefone, e-mail e URLs completas de afiliado não são enviados pelos eventos personalizados. A medição não envia eventos de compra.
 
-Crie dimensões personalizadas **com escopo de evento** para `product_id`, `product_name`, `placement`, `offer_variant`, `cohort` e `experiment_id`, usando os mesmos nomes como parâmetros. Elas ajudam a comparar os eventos em Explorações. Novas dimensões não recuperam automaticamente dados anteriores à sua criação.
+Já foram cadastradas dimensões personalizadas **com escopo de evento** para `product_id`, `product_name`, `placement`, `offer_variant`, `cohort` e `experiment_id`, usando os mesmos nomes como parâmetros. Elas ajudam a comparar os eventos em Explorações. Novas dimensões não recuperam automaticamente dados anteriores à sua criação.
 
 Para ler os resultados, compare visitantes medidos, usuários que viram cada produto e usuários que clicaram nele. Use usuários únicos em ambos os lados para calcular a proporção de interessados. A contagem bruta de cliques pode incluir várias tentativas da mesma pessoa. Pessoas que recusam ou bloqueiam Analytics ficam fora dessa amostra. Um clique indica interesse; vendas elegíveis e comissões são verificadas na Central de Afiliados.
 
