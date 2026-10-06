@@ -1,7 +1,7 @@
-// ID público do fluxo GA4; mantenha desligado até criar e configurar a propriedade.
+// ID público do fluxo GA4 informado pelo responsável; coleta após consentimento.
 window.GARIMPO_ANALYTICS = Object.freeze({
-  enabled: false,
-  measurementId: '',
+  enabled: true,
+  measurementId: 'G-BMC6B1S9XF',
   allowedHost: 'wesleyttiago.github.io',
   pathPrefix: '/garimpo-smart-ml/blog/',
   experimentId: 'primeiro-teste-2026-10',

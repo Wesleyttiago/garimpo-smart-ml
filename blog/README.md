@@ -8,4 +8,4 @@ CURADORIA.md registra fontes, modelos, critérios e prioridades de testes. As ci
 
 ## Medição e primeiro teste
 
-A integração GA4 está preparada e desativada em `assets/analytics-config.js`, aguardando o ID público da propriedade. Veja [PRIMEIRO-TESTE.md](PRIMEIRO-TESTE.md) para ativar, validar os eventos e preparar os três conteúdos iniciais. Não há resultados reais registrados ainda. A medição fica restrita ao blog público, após a aceitação do visitante.
+A integração GA4 está ativada para o fluxo `G-BMC6B1S9XF` em `assets/analytics-config.js`, após a confirmação de que a medição otimizada está desligada. O recebimento dos eventos no painel ainda deve ser conferido. Veja [PRIMEIRO-TESTE.md](PRIMEIRO-TESTE.md) para ativar, validar os eventos e preparar os três conteúdos iniciais. Não há resultados reais comprovados ainda. A medição fica restrita ao blog público, após a aceitação do visitante.

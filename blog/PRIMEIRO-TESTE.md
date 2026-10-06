@@ -1,6 +1,6 @@
 # Primeiro teste de interesse — Garimpo Smart
 
-Preparado em 5 de outubro de 2026. A integração está publicada **desativada**, sem uma propriedade GA4 configurada. Não há resultados de visitantes ou vendas nesta entrega.
+Integração ativada em 5 de outubro de 2026 para o fluxo `G-BMC6B1S9XF`, após o responsável confirmar que desativou a medição otimizada. Conta: **W&S LTDA**; fluxo: **Garimpo Smart Blog — Web**. A coleta exige aceitação do visitante e a chegada dos eventos ao painel ainda precisa ser conferida. Não há vendas ou comissões comprovadas nesta entrega.
 
 ## Seleção inicial provisória
 
@@ -19,7 +19,7 @@ Abra cada link principal e confirme nome, modelo, foto, vendedor, valor final, p
 ## Ativar a medição
 
 1. Entre em https://analytics.google.com/ com sua conta Google e escolha **Começar a medir**.
-2. Crie a conta Garimpo Smart e uma propriedade Garimpo Smart Blog. Use Brasil, fuso de Recife/São Paulo (UTC−3) e real brasileiro.
+2. Crie a conta W&S LTDA e uma propriedade Garimpo Smart Blog. Use Brasil, fuso de Recife/São Paulo (UTC−3) e real brasileiro. Esses nomes já foram escolhidos para a configuração atual.
 3. Crie um fluxo **Web** para `https://wesleyttiago.github.io/garimpo-smart-ml/blog/`.
 4. **Desative Medição otimizada / Enhanced measurement** nesse fluxo. Nosso código já envia as páginas e os cliques necessários com URLs filtradas. Não instale outro trecho de gtag ou Google Tag Manager em paralelo.
 5. Copie o **ID de medição**, no formato `G-XXXXXXXXXX`, e envie somente esse identificador público. Não é necessária senha, chave de API ou acesso ao seu login.
@@ -71,4 +71,3 @@ Divulgue inicialmente em um canal que você já usa. Registre canal, produto, da
 - Criação da propriedade, fluxo e ID: https://support.google.com/analytics/answer/9304153
 - Eventos GA4: https://developers.google.com/analytics/devguides/collection/ga4/events
 - Estados de consentimento: https://developers.google.com/tag-platform/security/guides/consent
-
