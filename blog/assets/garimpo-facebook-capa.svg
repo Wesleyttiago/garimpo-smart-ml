@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800" viewBox="0 0 1920 800">
+  <rect width="1920" height="800" fill="#faf7f0"/>
+  <path d="M0 485C154 417 339 474 419 638S447 790 512 800H0Z" fill="#e7eddf"/>
+  <path d="M1755 0H1920V800H1779C1662 685 1664 542 1730 401S1828 118 1755 0Z" fill="#e7eddf"/>
+  <g transform="translate(196 482) scale(2.4)" fill="none" stroke="#73907b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 45L50 0L100 45M15 34V97H85V34M42 97V64H62V97"/>
+    <path d="M105 17V-3M95 7H115" stroke="#b67b57"/>
+  </g>
+  <text x="1040" y="144" text-anchor="middle" font-family="Nimbus Sans,Arial,sans-serif" font-size="22" letter-spacing="6" fill="#55715d">CASA &amp; ROTINA</text>
+  <text x="1040" y="267" text-anchor="middle" font-family="Nimbus Sans,Arial,sans-serif" font-size="78" font-weight="bold" fill="#294e42">garimpo<tspan fill="#55715d">smart.</tspan></text>
+  <text x="1040" y="421" text-anchor="middle" font-family="Nimbus Roman,Georgia,serif" font-size="92" fill="#294e42">Uma casa mais leve,</text>
+  <text x="1040" y="530" text-anchor="middle" font-family="Nimbus Roman,Georgia,serif" font-size="92" font-style="italic" fill="#294e42">do seu jeito.</text>
+  <path d="M977 589H1103" stroke="#b67b57" stroke-width="3"/>
+  <text x="1040" y="653" text-anchor="middle" font-family="Nimbus Sans,Arial,sans-serif" font-size="28" fill="#50665c">Organização · Limpeza · Achados</text>
+</svg>
