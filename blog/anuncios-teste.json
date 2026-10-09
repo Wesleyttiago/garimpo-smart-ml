@@ -1,0 +1,81 @@
+{
+  "name": "Garimpo Smart — teste de interesse em produtos",
+  "status": "PREPARED_NOT_CREATED",
+  "objective": "TRAFFIC",
+  "optimization": "LINK_CLICKS_UNTIL_SUPPORTED_MEASUREMENT",
+  "pageId": "1424708750725956",
+  "proposedBudget": {
+    "currency": "BRL",
+    "total": 90,
+    "durationDays": 3,
+    "lifetimeBudget": true,
+    "requiresNumericApproval": true
+  },
+  "audience": {
+    "country": "BR",
+    "ageMin": 25,
+    "ageMax": 65,
+    "gender": "female",
+    "status": "hypothesis_to_validate",
+    "interestSuggestions": [
+      "Organização da casa",
+      "Cozinha",
+      "Decoração"
+    ],
+    "interestIdsConfirmed": false
+  },
+  "placements": [
+    "Facebook Feed",
+    "Facebook Stories"
+  ],
+  "structure": "one_ad_set_two_ads_shared_total_budget",
+  "ads": [
+    {
+      "id": "mini-mop",
+      "title": [
+        "Perto da pia,",
+        "tudo à mão."
+      ],
+      "sub": [
+        "Um mini mop para pequenos cantinhos.",
+        "Confira tamanho, material e refis."
+      ],
+      "image": "mini-mop.webp",
+      "headline": "Um achado compacto para conhecer",
+      "text": "Os pequenos cantinhos também fazem parte do cuidado com a casa 💚\n\nSeparei este mini mop portátil para você comparar. Veja medidas, material, superfícies indicadas e disponibilidade de refis antes de escolher. Ele não substitui os utensílios para limpar uma área grande.\n\nConfira a recomendação e abra a oferta no Mercado Livre:\n{url}\n\nSiga o Garimpo Smart para mais ideias para a casa.\n\nPublicidade • link de afiliado. Podemos receber comissão por compras elegíveis, sem custo adicional para você.",
+      "paidUrl": "https://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=teste-pago-2026-10&utm_content=mini-mop#mini-mop",
+      "organicUrl": "https://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=social&utm_campaign=teste-pago-2026-10&utm_content=mini-mop#mini-mop",
+      "feed": "assets/anuncio-mini-mop-feed.png",
+      "story": "assets/anuncio-mini-mop-story.png",
+      "cta": "Saiba mais",
+      "paidStatus": "PREPARED_NOT_CREATED",
+      "paidText": "Os pequenos cantinhos também fazem parte do cuidado com a casa 💚\n\nSeparei este mini mop portátil para você comparar. Veja medidas, material, superfícies indicadas e disponibilidade de refis antes de escolher. Ele não substitui os utensílios para limpar uma área grande.\n\nConfira a recomendação e abra a oferta no Mercado Livre:\nhttps://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=teste-pago-2026-10&utm_content=mini-mop#mini-mop\n\nSiga o Garimpo Smart para mais ideias para a casa.\n\nPublicidade • link de afiliado. Podemos receber comissão por compras elegíveis, sem custo adicional para você.",
+      "organicText": "Os pequenos cantinhos também fazem parte do cuidado com a casa 💚\n\nSeparei este mini mop portátil para você comparar. Veja medidas, material, superfícies indicadas e disponibilidade de refis antes de escolher. Ele não substitui os utensílios para limpar uma área grande.\n\nConfira a recomendação e abra a oferta no Mercado Livre:\nhttps://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=social&utm_campaign=teste-pago-2026-10&utm_content=mini-mop#mini-mop\n\nSiga o Garimpo Smart para mais ideias para a casa.\n\nPublicidade • link de afiliado. Podemos receber comissão por compras elegíveis, sem custo adicional para você."
+    },
+    {
+      "id": "mini-processador",
+      "title": [
+        "Pouca quantidade,",
+        "um formato compacto."
+      ],
+      "sub": [
+        "Mini processador USB para comparar.",
+        "Confira capacidade e usos permitidos."
+      ],
+      "image": "mini-processador.webp",
+      "headline": "Uma opção para pequenas porções",
+      "text": "O tamanho do aparelho precisa combinar com a sua rotina 💚\n\nSeparei este mini processador USB como uma opção para comparar. Confira a capacidade, os alimentos permitidos, a recarga e a limpeza das partes antes de escolher.\n\nVeja os detalhes e abra a oferta no Mercado Livre:\n{url}\n\nSiga o Garimpo Smart para mais ideias para a casa.\n\nPublicidade • link de afiliado. Podemos receber comissão por compras elegíveis, sem custo adicional para você.",
+      "paidUrl": "https://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=teste-pago-2026-10&utm_content=mini-processador#mini-processador",
+      "organicUrl": "https://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=social&utm_campaign=teste-pago-2026-10&utm_content=mini-processador#mini-processador",
+      "feed": "assets/anuncio-mini-processador-feed.png",
+      "story": "assets/anuncio-mini-processador-story.png",
+      "cta": "Saiba mais",
+      "paidStatus": "PREPARED_NOT_CREATED",
+      "paidText": "O tamanho do aparelho precisa combinar com a sua rotina 💚\n\nSeparei este mini processador USB como uma opção para comparar. Confira a capacidade, os alimentos permitidos, a recarga e a limpeza das partes antes de escolher.\n\nVeja os detalhes e abra a oferta no Mercado Livre:\nhttps://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=teste-pago-2026-10&utm_content=mini-processador#mini-processador\n\nSiga o Garimpo Smart para mais ideias para a casa.\n\nPublicidade • link de afiliado. Podemos receber comissão por compras elegíveis, sem custo adicional para você.",
+      "organicText": "O tamanho do aparelho precisa combinar com a sua rotina 💚\n\nSeparei este mini processador USB como uma opção para comparar. Confira a capacidade, os alimentos permitidos, a recarga e a limpeza das partes antes de escolher.\n\nVeja os detalhes e abra a oferta no Mercado Livre:\nhttps://wesleyttiago.github.io/garimpo-smart-ml/blog/recomendacoes.html?utm_source=facebook&utm_medium=social&utm_campaign=teste-pago-2026-10&utm_content=mini-processador#mini-processador\n\nSiga o Garimpo Smart para mais ideias para a casa.\n\nPublicidade • link de afiliado. Podemos receber comissão por compras elegíveis, sem custo adicional para você."
+    }
+  ],
+  "commissionBRL": null,
+  "paidEligibilityConfirmed": false,
+  "accountConnected": false
+}

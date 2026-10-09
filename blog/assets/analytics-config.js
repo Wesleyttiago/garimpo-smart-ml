@@ -7,8 +7,8 @@ window.GARIMPO_ANALYTICS = Object.freeze({
   experimentId: 'primeiro-teste-2026-10',
   pilotProducts: ['mini-mop', 'dispenser-pasta', 'mini-processador'],
   sources: ['facebook', 'instagram', 'tiktok', 'whatsapp'],
-  campaigns: ['primeiro-teste-2026-10', 'lancamento-blog-2026-10'],
+  campaigns: ['primeiro-teste-2026-10', 'lancamento-blog-2026-10', 'teste-pago-2026-10'],
   contents: ['blog', 'mini-mop', 'dispenser-pasta', 'mini-processador'],
-  media: ['social', 'message'],
+  media: ['social', 'message', 'paid_social'],
   consentDays: 180
 });

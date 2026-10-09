@@ -33,11 +33,12 @@ Algumas recomendações contêm links de afiliado. Podemos receber comissão por
 
 A legenda de lançamento está em [LANCAMENTO.md](LANCAMENTO.md). Publicar no perfil da marca depois da criação da página e da conexão da rede. Registrar aqui a URL efetivamente publicada.
 
-## Situação da configuração
+## Situação da configuração — 9/10/2026
 
-- Blog público e materiais de divulgação preparados.
-- Metricool respondeu que a marca ainda não tem nenhuma rede social conectada.
-- A criação da página do Facebook ainda não foi concluída: falta concluir o acesso à conta responsável.
-- Nenhuma publicação social foi enviada.
-
-Depois de resolver o acesso: criar a página, conferir os campos e o recorte das imagens, conectar a página ao Metricool e publicar a apresentação do blog.
+- Página Garimpo Smart criada; categoria Blog pessoal, bio e site adicionados.
+- Facebook conectado à marca Metricool 7322007; ID da página 1424708750725956.
+- Apresentação publicada pelo Metricool em 9/10/2026 às 10h (UTC−3), com status PUBLISHED confirmado.
+- URL: https://facebook.com/1424708750725956/posts/122093620683515223
+- Foto de perfil e capa prontas e entregues ao titular; upload na página ainda não confirmado devido à interrupção da sessão de navegador.
+- Duas peças de produto preparadas para Feed e Stories; situação do teste pago em ANUNCIOS.md.
+- Nenhuma campanha paga criada ou ativada nesta preparação.
