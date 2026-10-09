@@ -57,3 +57,12 @@ O prazo de 3 dias é uma coleta inicial de interesse, não garantia de teste est
 - https://www.mercadolivre.com.br/l/primeiros-passos-perguntas-frequentes-para-afiliados (trechos públicos indexados; acesso completo retornou 403).
 - https://www.mercadolivre.com.br/l/afiliados-home (pagamento sujeito à validação de vendas).
 - https://developers.meta.com/vr/resources/launch-ad-campaign/ (orientações gerais de objetivo, criativo e orçamento; não aplicar os requisitos próprios de apps a esta campanha).
+
+## Publicações orgânicas agendadas
+
+A apresentação do blog foi publicada em 9/10 às 10h e confirmada como PUBLISHED pelo Metricool: https://facebook.com/1424708750725956/posts/122093620683515223
+
+- mini-mop: 2026-10-09T12:00:00 (America/Sao_Paulo), id 392091958, uuid 2774481687588193704. Status PENDING confirmado, publicação automática e imagem armazenada. https://app.metricool.com/planner/calendar?blogId=7322007&openWithPostUuid=2774481687588193704
+- mini-processador: 2026-10-10T10:00:00 (America/Sao_Paulo), id 392092029, uuid -6598719317221224685. Status PENDING confirmado, publicação automática e imagem armazenada. https://app.metricool.com/planner/calendar?blogId=7322007&openWithPostUuid=-6598719317221224685
+
+Esses agendamentos são orgânicos, sem impulsionamento ou gasto de mídia. Campanha paga ainda não criada nem ativada.
