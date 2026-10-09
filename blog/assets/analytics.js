@@ -38,7 +38,8 @@
     const query = new URLSearchParams(location.search);
     const approved = {
       utm_source: config.sources, utm_medium: config.media,
-      utm_campaign: [config.experimentId], utm_content: config.pilotProducts
+      utm_campaign: config.campaigns || [config.experimentId],
+      utm_content: config.contents || config.pilotProducts
     };
     for (const [key, values] of Object.entries(approved)) {
       const value = query.get(key);

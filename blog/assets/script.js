@@ -41,3 +41,29 @@ if(productSearch){
   const button=productButtons.find(b=>roomSlug(b.dataset.productFilter)===requested)||productButtons[0];
   setProductRoom(button,false);
 }
+
+// Compartilha a URL pública da página, sem buscas ou parâmetros do visitante.
+const shareButton=document.querySelector('[data-share-page]');
+const shareStatus=document.querySelector('[data-share-status]');
+const copyField=document.querySelector('[data-share-copy]');
+shareButton?.addEventListener('click',async()=>{
+  const url=shareButton.dataset.sharePage;
+  if(!url||!shareStatus)return;
+  shareStatus.textContent='';
+  if(copyField)copyField.hidden=true;
+  try{
+    if(typeof navigator.share==='function'){
+      await navigator.share({title:document.title,url});
+      shareStatus.textContent='Compartilhamento concluído.';
+    }else if(navigator.clipboard?.writeText){
+      await navigator.clipboard.writeText(url);
+      shareStatus.textContent='Link copiado. Cole onde quiser compartilhar.';
+    }else{
+      throw new Error('Copiar manualmente');
+    }
+  }catch(error){
+    if(error.name==='AbortError')return;
+    shareStatus.textContent='Copie o link abaixo para compartilhar.';
+    if(copyField){copyField.hidden=false;copyField.value=url;copyField.focus();copyField.select();}
+  }
+});

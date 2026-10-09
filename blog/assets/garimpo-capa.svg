@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf7f0"/>
+  <path d="M864 0H1200V630H962C908 512 896 408 944 306S1007 98 864 0" fill="#e7eddf"/>
+  <text x="76" y="91" font-family="Nimbus Sans,Arial,sans-serif" font-size="40" font-weight="bold" fill="#294e42">garimpo<tspan fill="#55715d">smart.</tspan></text>
+  <text x="78" y="125" font-family="Nimbus Sans,Arial,sans-serif" font-size="14" letter-spacing="4" fill="#55715d">CASA &amp; ROTINA</text>
+  <text x="76" y="275" font-family="Nimbus Roman,Georgia,serif" font-size="86" fill="#294e42">Uma casa mais leve,</text>
+  <text x="76" y="370" font-family="Nimbus Roman,Georgia,serif" font-size="86" font-style="italic" fill="#294e42">do seu jeito.</text>
+  <path d="M78 418H206" stroke="#b67b57" stroke-width="3"/>
+  <text x="76" y="471" font-family="Nimbus Sans,Arial,sans-serif" font-size="25" fill="#50665c">Ideias para organizar, cuidar e escolher melhor.</text>
+  <text x="76" y="562" font-family="Nimbus Sans,Arial,sans-serif" font-size="17" fill="#55715d">O BLOG DO GARIMPO SMART</text>
+  <g transform="translate(992 448)" fill="none" stroke="#55715d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 45L50 0L100 45M15 34V97H85V34M42 97V64H62V97"/>
+    <path d="M105 17V-3M95 7H115" stroke="#b67b57"/>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect width="1080" height="1350" fill="#faf7f0"/>
+  <rect x="56" y="56" width="968" height="1238" rx="10" fill="none" stroke="#d2dbc9" stroke-width="2"/>
+  <text x="100" y="158" font-family="Nimbus Sans,Arial,sans-serif" font-size="48" font-weight="bold" fill="#294e42">garimpo<tspan fill="#55715d">smart.</tspan></text>
+  <text x="102" y="202" font-family="Nimbus Sans,Arial,sans-serif" font-size="17" letter-spacing="5" fill="#55715d">CASA &amp; ROTINA</text>
+  <text x="100" y="357" font-family="Nimbus Sans,Arial,sans-serif" font-size="18" letter-spacing="3" fill="#b67b57">UM CANTINHO PARA FACILITAR O DIA</text>
+  <text x="96" y="481" font-family="Nimbus Roman,Georgia,serif" font-size="104" fill="#294e42">Pequenas ideias.</text>
+  <text x="96" y="605" font-family="Nimbus Roman,Georgia,serif" font-size="104" font-style="italic" fill="#294e42">Mais leveza</text>
+  <text x="96" y="729" font-family="Nimbus Roman,Georgia,serif" font-size="104" font-style="italic" fill="#294e42">na sua casa.</text>
+  <path d="M102 798H245" stroke="#b67b57" stroke-width="3"/>
+  <text x="100" y="870" font-family="Nimbus Sans,Arial,sans-serif" font-size="31" fill="#50665c">Dicas de organização e limpeza.</text>
+  <text x="100" y="921" font-family="Nimbus Sans,Arial,sans-serif" font-size="31" fill="#50665c">Achados para comparar com calma.</text>
+  <rect x="100" y="1012" width="362" height="81" rx="40" fill="#294e42"/>
+  <text x="140" y="1064" font-family="Nimbus Sans,Arial,sans-serif" font-size="26" fill="#faf7f0">Conheça o nosso blog</text>
+  <text x="100" y="1204" font-family="Nimbus Sans,Arial,sans-serif" font-size="19" fill="#55715d">FEITO PARA A VIDA REAL.</text>
+  <g transform="translate(810 1090)" fill="none" stroke="#55715d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 45L50 0L100 45M15 34V97H85V34M42 97V64H62V97"/>
+    <path d="M105 17V-3M95 7H115" stroke="#b67b57"/>
+  </g>
+</svg>
